@@ -1,17 +1,14 @@
 ﻿namespace Aflevering_1
 {
-    class Stock
+    class Stock : Subject
     {
-        public virtual void SetValue(float x)
+        private string _name;
+        Stock(string name)
         {
-            _value = x;
+            _name = name;
         }
+        public float Value { get; set; }
 
-        //public float GetValue()
-        //{
-        //    return _value;
-        //}
-
-        private float _value;
+                
     }
 }

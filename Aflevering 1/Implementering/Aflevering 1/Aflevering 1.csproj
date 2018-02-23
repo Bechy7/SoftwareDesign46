@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Observer.cs" />
+    <Compile Include="IObserver.cs" />
     <Compile Include="Portfolio.cs" />
     <Compile Include="PortfolioDisplay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
