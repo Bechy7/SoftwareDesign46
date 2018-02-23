@@ -19,7 +19,7 @@ namespace Aflevering_1
         {
             foreach (IObserver obs in _observers)
             {
-                obs.Update();
+                obs.Update(this);
             }
         }
     }

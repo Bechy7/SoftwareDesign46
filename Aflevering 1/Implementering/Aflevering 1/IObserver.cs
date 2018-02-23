@@ -2,6 +2,6 @@
 {
     interface IObserver
     {
-        void Update();
+        void Update(Subject subject);
     }
 }

@@ -8,9 +8,9 @@ namespace Aflevering_1
 {
     class PortfolioDisplay
     {
-        public void PrintToScreen()
+        public void Print()
         {
-
+            //Console.WriteLine(
         }
     }
 
