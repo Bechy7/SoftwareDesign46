@@ -1,8 +1,10 @@
-﻿namespace Aflevering_1
+﻿using System.Collections.Generic;
+
+namespace Aflevering_1
 {
-    class Portfolio
+    class Portfolio : IObserver
     {
-        public void Update(float value)
+        public void Update()
         {
             
         }

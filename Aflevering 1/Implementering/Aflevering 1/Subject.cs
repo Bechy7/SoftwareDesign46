@@ -1,26 +1,26 @@
-﻿
+﻿using System.Collections.Generic;
 
 namespace Aflevering_1
 {
-    class Subject
+    abstract class Subject
     {
-        public void Attach(Portfolio)
+        private List<IObserver> _observers = new List<IObserver>();
+        public void Attach(IObserver observer)
         {
-
+            _observers.Add(observer);
         }
 
-        public void Detach(Portfolio)
+        public void Detach(IObserver observer)
         {
-
+            _observers.Remove(observer);
         }
 
         public void Notify()
         {
-
-        }
-
-        public virtual void SetValue(float x)
-        {
+            foreach (IObserver obs in _observers)
+            {
+                obs.Update();
+            }
         }
     }
 }
