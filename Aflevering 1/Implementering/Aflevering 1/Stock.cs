@@ -3,20 +3,35 @@
     class Stock : Subject
     {
         private string _name;
-        private float _value;
-        Stock(string name, float value)
+        private double _value;
+        public Stock(string name, double value)
         {
             _name = name;
             _value = value;
         }
 
-        public void SetValue(float value)
+        public Stock(string name)
         {
-            _value = value;
-            Notify();
+            _name = name;
+            _value = 0;
         }
-        
 
-                
+        public double Value
+        {
+            get { return _value; }
+            set
+            {
+                if (_value != value)
+                {
+                    _value = value;
+                    Notify();
+                }
+            }
+        }
+
+        public string Name
+        {
+            get { return _name; }
+        }            
     }
 }

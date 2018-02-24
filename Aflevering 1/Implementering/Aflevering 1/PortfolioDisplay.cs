@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace Aflevering_1
 {
-    class PortfolioDisplay
+    class PortfolioDisplay : IDisplay
     {
-        public void Print()
+        //private List<Stock> _stocks = new List<Stock>();
+        public void Print(Portfolio portfolio)
         {
-            //Console.WriteLine(
+            Console.WriteLine($"Portfolio {portfolio.Name} contains:");
+            foreach (Stock stock in portfolio._stocks)
+            {
+                Console.WriteLine($"\t{stock.Name} : {stock.Value}");
+            }
+            Console.WriteLine();
+
         }
     }
 
