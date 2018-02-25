@@ -2,36 +2,23 @@
 {
     class Stock : Subject
     {
-        private string _name;
-        private double _value;
         public Stock(string name, double value)
+            : base(name, value)
         {
-            _name = name;
-            _value = value;
+
         }
 
-        public Stock(string name)
+        public virtual void Attach(IObserver observer)
         {
-            _name = name;
-            _value = 0;
+            base.Attach(observer);
+            ((Portfolio)observer).AddStock(this);
         }
 
-        public double Value
+        public virtual void Detach(IObserver observer)
         {
-            get { return _value; }
-            set
-            {
-                if (_value != value)
-                {
-                    _value = value;
-                    Notify();
-                }
-            }
+            base.Detach(observer);
+            ((Portfolio)observer).RemoveStock(this);
         }
 
-        public string Name
-        {
-            get { return _name; }
-        }            
     }
 }

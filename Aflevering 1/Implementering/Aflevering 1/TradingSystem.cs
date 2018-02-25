@@ -14,8 +14,8 @@ namespace Aflevering_1
             Stock sub = new Stock("aktie", 5.5);
             Stock sub2 = new Stock("wow", 44);
 
-            IObserver observer1 = new Portfolio("port1", display);
-            IObserver observer2 = new Portfolio("port2", display);
+            IObserver observer1 = new Portfolio("PORTFOLIO_1", display);
+            IObserver observer2 = new Portfolio("PORTFOLIO_2", display);
 
             sub.Attach(observer1);
             sub.Attach(observer2);
@@ -26,10 +26,7 @@ namespace Aflevering_1
             sub.Value = 5;
 
             sub2.Value = 33;
-
-
-
-
+            
         }
     }
 }

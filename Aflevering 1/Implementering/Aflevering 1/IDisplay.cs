@@ -2,6 +2,6 @@
 {
     interface IDisplay
     {
-        void Print(Portfolio subject);
+        void Print(IObserver observer);
     }
 }

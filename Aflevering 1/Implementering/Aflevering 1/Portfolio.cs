@@ -17,18 +17,23 @@ namespace Aflevering_1
             _display = (PortfolioDisplay)display;
         }
 
+        public void AddStock(Stock stock)
+        {
+            // Observe the stock
+            _stocks.Add(stock);
+            Console.WriteLine($"{_name} observing stock: {stock.Name} :: {stock.Value}");
+        }
+
+        public void RemoveStock(Stock stock)
+        {
+            // Stop observing the stock
+            _stocks.Remove(stock);
+            Console.WriteLine($"{_name} no longer observing stock: {stock.Name} :: {stock.Value}");
+        }
+
         public void Update(Subject sub)
         {
-            Stock stock = (Stock)sub;
-
-            if (!_stocks.Any())
-            {
-               //Console.WriteLine($"Added stock: {stock.Name} : {stock.Value}\n");
-                _stocks.Add(stock);
-            }
-            else if (!_stocks.Contains(sub))
-                _stocks.Add((stock));
-
+            Console.WriteLine($"UPDATING IN {Name}: \"{sub.Name}\"  CHANGING VALUE TO \"{sub.Value}\"\n");
             _display.Print(this);
         }
 

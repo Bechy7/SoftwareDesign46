@@ -9,10 +9,12 @@ namespace Aflevering_1
     class PortfolioDisplay : IDisplay
     {
         //private List<Stock> _stocks = new List<Stock>();
-        public void Print(Portfolio portfolio)
+        public void Print(IObserver portfolio)
         {
-            Console.WriteLine($"Portfolio {portfolio.Name} contains:");
-            foreach (Stock stock in portfolio._stocks)
+            Portfolio currentPortfolio = (Portfolio)portfolio;
+
+            Console.WriteLine($"Portfolio {currentPortfolio.Name} contains:");
+            foreach (Stock stock in currentPortfolio._stocks)
             {
                 Console.WriteLine($"\t{stock.Name} : {stock.Value}");
             }
