@@ -33,6 +33,7 @@ namespace Aflevering_1
 
         public void Update(Subject sub)
         {
+            
             Console.WriteLine($"UPDATING IN {Name}: \"{sub.Name}\"  CHANGING VALUE TO \"{sub.Value}\"\n");
             _display.Print(this);
         }
