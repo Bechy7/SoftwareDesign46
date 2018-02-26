@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace Aflevering_1
 {
+    //Class that can be subscribed to with attach. Will update subscribers when change on value occurs
     abstract class Subject
     {
         private string _name;
@@ -29,13 +30,13 @@ namespace Aflevering_1
 
         public void Notify()
         {
-            //Console.WriteLine($"Notifying that stock {_name} has changed to {_value}");
             foreach (IObserver obs in _observers)
             {
                 obs.Update(this);
             }
         }
 
+        //Value of the stock, runs Notify() on change
         public double Value
         {
             get { return _value; }
@@ -55,6 +56,7 @@ namespace Aflevering_1
             get { return _name; }
         }
 
+        //The previous value of the stock
         public double OldValue { get; set; }
     }
 }
