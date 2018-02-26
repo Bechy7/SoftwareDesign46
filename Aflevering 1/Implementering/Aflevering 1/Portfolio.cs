@@ -8,18 +8,9 @@ namespace Aflevering_1
     class Portfolio : IObserver
     {
         private string _name;
-        public static List<Stock> _stocks = new List<Stock>();
+        public List<Stock> _stocks = new List<Stock>();
         private PortfolioDisplay _display;
-        public static List<int> _amounts = new List<int>();
-
-        Dictionary<List<>>
-        //List<(Stock, int)> tupleList = new List<(Stock, int)>
-        //{
-        //   (new Stock("hej", 3), 2)
-        //};
-
-
-        //private Tuple tuple = new Tuple.Create(_stocks, _amounts);
+        public List<int> _amounts = new List<int>();
 
         public Portfolio(string name, IDisplay display)
         {
@@ -31,6 +22,7 @@ namespace Aflevering_1
         {
             // Observe the stock
             _stocks.Add(stock);
+            _amounts.Add(1);
             Console.WriteLine($"{_name} observing stock: {stock.Name} :: {stock.Value}");
         }
 
@@ -46,6 +38,21 @@ namespace Aflevering_1
             
             Console.WriteLine($"UPDATING IN {Name}: \"{sub.Name}\"  CHANGING VALUE FROM \"{sub.OldValue.ToString("#.##")}\" TO \"{sub.Value.ToString("#.##")}\"\n");
             _display.Print(this);
+        }
+
+        public void BuyStock(string stockName, int amount)
+        {
+            int i = 0;
+            foreach (var stock in _stocks)
+            {
+                if (stock.Name == stockName)
+                {
+                    _amounts[i] +=  amount;
+                    Console.WriteLine("Amount test: " + _amounts[i]);
+                }
+
+                i++;
+            }
         }
 
         public string Name

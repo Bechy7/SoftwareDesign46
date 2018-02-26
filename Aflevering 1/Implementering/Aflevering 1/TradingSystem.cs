@@ -24,7 +24,7 @@ namespace Aflevering_1
 
             IObserver observer1 = new Portfolio("PORTFOLIO_1", display);
             IObserver observer2 = new Portfolio("PORTFOLIO_2", display);
-            IObserver observer3 = new Portfolio("PORTFOLIO_2", display);
+            IObserver observer3 = new Portfolio("PORTFOLIO_3", display);
 
             stockList[0].Attach(observer1);
             stockList[1].Attach(observer2);
@@ -37,24 +37,27 @@ namespace Aflevering_1
             Thread newThread = new Thread(()=>updateValue(stockList));
             newThread.Start();
 
-            //do
-            //{
-            //    Console.WriteLine("Change stock value");
-            //    string changeValue = Console.ReadLine();
+            //Input for changing stock value, eg: "Vestas 5"
+            do
+            {
+                Console.WriteLine("Change stock value");
+                string changeValue = Console.ReadLine();
 
-            //    string[] words = changeValue.Split(' ');
+                string[] words = changeValue.Split(' ');
 
-            //    foreach (var stock in stockList)
-            //    {
-            //        if (words[0] == stock.Name)
-            //        {
-            //            stock.Value = double.Parse(words[1]);
-            //        }
-            //    }
+                foreach (var stock in stockList)
+                {
+                    if (words[0] == stock.Name)
+                    {
+                        stock.Value = double.Parse(words[1]);
+                    }
+                }
 
-            //} while (true);
-            
+            } while (true);
+
         }
+
+        //Updating value with random increments or decrements
         public static void updateValue(List<Stock> stockList)
         {
             while (true)
@@ -63,11 +66,11 @@ namespace Aflevering_1
 
                 int randomIndex = random.Next(0, stockList.Count);
 
-                double oldStockValue = stockList[randomIndex].Value;
+                double oldStockValue = stockList[randomIndex].Value;    //Stockvalue before change
 
                 int randomNumber = random.Next(-5, 5);
 
-                stockList[randomIndex].Value = (oldStockValue / 100) * (100 - randomNumber);
+                stockList[randomIndex].Value = (oldStockValue / 100) * (100 - randomNumber);    //Changes random integer to a double
 
                 Thread.Sleep(5000);
             }
