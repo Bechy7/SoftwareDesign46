@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Aflevering_1
 {
+    //For outputting currentPortfolio stock information
     class PortfolioDisplay : IDisplay
     {
         public void Print(IObserver portfolio)

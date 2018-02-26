@@ -26,6 +26,7 @@ namespace Aflevering_1
             IObserver observer2 = new Portfolio("PORTFOLIO_2", display);
             IObserver observer3 = new Portfolio("PORTFOLIO_3", display);
 
+            //Subscribes Observers to Subjects (Portfolios to stocks)
             stockList[0].Attach(observer1);
             stockList[1].Attach(observer2);
             stockList[1].Attach(observer1);
@@ -34,7 +35,7 @@ namespace Aflevering_1
             stockList[4].Attach(observer1);
             stockList[5].Attach(observer2);
 
-            Thread newThread = new Thread(()=>updateValue(stockList));
+            Thread newThread = new Thread(()=>updateValue(stockList));  //Makes thread run in updateValue method
             newThread.Start();
 
             //Input for changing stock value, eg: "Vestas 5"
