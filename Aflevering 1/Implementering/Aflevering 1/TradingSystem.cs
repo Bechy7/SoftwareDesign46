@@ -41,7 +41,6 @@ namespace Aflevering_1
             //Input for changing stock value, eg: "Vestas 5"
             do
             {
-                Console.WriteLine("Change stock value");
                 string changeValue = Console.ReadLine();
 
                 string[] words = changeValue.Split(' ');
