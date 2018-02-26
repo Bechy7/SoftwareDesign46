@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Aflevering_1
 {
@@ -10,23 +12,50 @@ namespace Aflevering_1
     {
         static void Main(string[] args)
         {
+            Thread newThread = new Thread(TradingSystem.updateValue);
+            newThread.Start();
+
             IDisplay display = new PortfolioDisplay();
-            Stock sub = new Stock("aktie", 5.5);
-            Stock sub2 = new Stock("wow", 44);
+            List<Stock> stockList = new List<Stock>();
+
+            stockList.Add(new Stock("Aktie", 5.5));
+            stockList.Add(new Stock("wow", 33));
+
+            //Stock sub = new Stock("aktie", 5.5);
+            //Stock sub2 = new Stock("wow", 44);
 
             IObserver observer1 = new Portfolio("PORTFOLIO_1", display);
             IObserver observer2 = new Portfolio("PORTFOLIO_2", display);
 
-            sub.Attach(observer1);
-            sub.Attach(observer2);
+            stockList[0].Attach(observer1);
+            stockList[1].Attach(observer2);
 
-            sub2.Attach(observer1);
+            do
+            {
+                Console.WriteLine("Change stock value");
+                string changeValue = Console.ReadLine();
 
-            sub.Value = 3;
-            sub.Value = 5;
+                string[] words = changeValue.Split(' ');
 
-            sub2.Value = 33;
+                foreach (var stock in stockList)
+                {
+                    if (words[0] == stock.Name)
+                    {
+                        stock.Value = double.Parse(words[1]);
+                    }
+                }
+
+            } while (true);
             
         }
+        public static void updateValue(List<Stock> stockList)
+        {
+            Random random = new Random();
+            int randomIndex = random.Next(0, stockList.Count + 1);
+            double randomStockValue = stockList[randomIndex].Value;
+            stockList[randomIndex].Value = randomIndex. (randomStockValue - 5, (randomStockValue / 100) * 105)
+        }
     }
+
+    
 }

@@ -8,7 +8,6 @@ namespace Aflevering_1
 {
     class PortfolioDisplay : IDisplay
     {
-        //private List<Stock> _stocks = new List<Stock>();
         public void Print(IObserver portfolio)
         {
             Portfolio currentPortfolio = (Portfolio)portfolio;
