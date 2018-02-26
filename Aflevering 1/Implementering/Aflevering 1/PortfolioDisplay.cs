@@ -15,7 +15,7 @@ namespace Aflevering_1
             Console.WriteLine($"Portfolio {currentPortfolio.Name} contains:");
             foreach (Stock stock in currentPortfolio._stocks)
             {
-                Console.WriteLine($"\t{stock.Name} : {stock.Value}");
+                Console.WriteLine($"\t{stock.Name} : {stock.Value.ToString("#.##")}");
             }
             Console.WriteLine();
 

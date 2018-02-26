@@ -8,8 +8,18 @@ namespace Aflevering_1
     class Portfolio : IObserver
     {
         private string _name;
-        public List<Stock> _stocks = new List<Stock>();
+        public static List<Stock> _stocks = new List<Stock>();
         private PortfolioDisplay _display;
+        public static List<int> _amounts = new List<int>();
+
+        Dictionary<List<>>
+        //List<(Stock, int)> tupleList = new List<(Stock, int)>
+        //{
+        //   (new Stock("hej", 3), 2)
+        //};
+
+
+        //private Tuple tuple = new Tuple.Create(_stocks, _amounts);
 
         public Portfolio(string name, IDisplay display)
         {
@@ -34,7 +44,7 @@ namespace Aflevering_1
         public void Update(Subject sub)
         {
             
-            Console.WriteLine($"UPDATING IN {Name}: \"{sub.Name}\"  CHANGING VALUE TO \"{sub.Value}\"\n");
+            Console.WriteLine($"UPDATING IN {Name}: \"{sub.Name}\"  CHANGING VALUE FROM \"{sub.OldValue.ToString("#.##")}\" TO \"{sub.Value.ToString("#.##")}\"\n");
             _display.Print(this);
         }
 
@@ -42,6 +52,6 @@ namespace Aflevering_1
         {
             get { return _name; }
         }
-
+        
     }
 }

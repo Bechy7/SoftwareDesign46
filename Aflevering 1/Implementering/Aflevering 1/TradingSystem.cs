@@ -12,48 +12,66 @@ namespace Aflevering_1
     {
         static void Main(string[] args)
         {
-            Thread newThread = new Thread(TradingSystem.updateValue);
-            newThread.Start();
-
             IDisplay display = new PortfolioDisplay();
             List<Stock> stockList = new List<Stock>();
 
-            stockList.Add(new Stock("Aktie", 5.5));
-            stockList.Add(new Stock("wow", 33));
-
-            //Stock sub = new Stock("aktie", 5.5);
-            //Stock sub2 = new Stock("wow", 44);
+            stockList.Add(new Stock("Google", 52.5));
+            stockList.Add(new Stock("Apple", 30.5));
+            stockList.Add(new Stock("Vestas", 10.5));
+            stockList.Add(new Stock("Microsoft", 33));
+            stockList.Add(new Stock("C25", 80));
+            stockList.Add(new Stock("Benchmark", 335));
 
             IObserver observer1 = new Portfolio("PORTFOLIO_1", display);
             IObserver observer2 = new Portfolio("PORTFOLIO_2", display);
+            IObserver observer3 = new Portfolio("PORTFOLIO_2", display);
 
             stockList[0].Attach(observer1);
             stockList[1].Attach(observer2);
+            stockList[1].Attach(observer1);
+            stockList[2].Attach(observer3);
+            stockList[3].Attach(observer2);
+            stockList[4].Attach(observer1);
+            stockList[5].Attach(observer2);
 
-            do
-            {
-                Console.WriteLine("Change stock value");
-                string changeValue = Console.ReadLine();
+            Thread newThread = new Thread(()=>updateValue(stockList));
+            newThread.Start();
 
-                string[] words = changeValue.Split(' ');
+            //do
+            //{
+            //    Console.WriteLine("Change stock value");
+            //    string changeValue = Console.ReadLine();
 
-                foreach (var stock in stockList)
-                {
-                    if (words[0] == stock.Name)
-                    {
-                        stock.Value = double.Parse(words[1]);
-                    }
-                }
+            //    string[] words = changeValue.Split(' ');
 
-            } while (true);
+            //    foreach (var stock in stockList)
+            //    {
+            //        if (words[0] == stock.Name)
+            //        {
+            //            stock.Value = double.Parse(words[1]);
+            //        }
+            //    }
+
+            //} while (true);
             
         }
         public static void updateValue(List<Stock> stockList)
         {
-            Random random = new Random();
-            int randomIndex = random.Next(0, stockList.Count + 1);
-            double randomStockValue = stockList[randomIndex].Value;
-            stockList[randomIndex].Value = randomIndex. (randomStockValue - 5, (randomStockValue / 100) * 105)
+            while (true)
+            {
+                Random random = new Random();
+
+                int randomIndex = random.Next(0, stockList.Count);
+
+                double oldStockValue = stockList[randomIndex].Value;
+
+                int randomNumber = random.Next(-5, 5);
+
+                stockList[randomIndex].Value = (oldStockValue / 100) * (100 - randomNumber);
+
+                Thread.Sleep(5000);
+            }
+           
         }
     }
 

@@ -43,6 +43,7 @@ namespace Aflevering_1
             {
                 if (_value != value)
                 {
+                    OldValue = _value;
                     _value = value;
                     Notify();
                 }
@@ -53,5 +54,7 @@ namespace Aflevering_1
         {
             get { return _name; }
         }
+
+        public double OldValue { get; set; }
     }
 }
