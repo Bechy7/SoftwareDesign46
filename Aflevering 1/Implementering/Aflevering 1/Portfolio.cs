@@ -40,21 +40,6 @@ namespace Aflevering_1
             _display.Print(this);
         }
 
-        public void BuyStock(string stockName, int amount)
-        {
-            int i = 0;
-            foreach (var stock in _stocks)
-            {
-                if (stock.Name == stockName)
-                {
-                    _amounts[i] +=  amount;
-                    Console.WriteLine("Amount test: " + _amounts[i]);
-                }
-
-                i++;
-            }
-        }
-
         public string Name
         {
             get { return _name; }
