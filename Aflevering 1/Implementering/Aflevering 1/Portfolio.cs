@@ -10,6 +10,7 @@ namespace Aflevering_1
         private string _name;
         public List<Stock> _stocks = new List<Stock>();
         private PortfolioDisplay _display;
+        public List<int> _amounts = new List<int>();
 
         public Portfolio(string name, IDisplay display)
         {
@@ -21,6 +22,7 @@ namespace Aflevering_1
         {
             // Observe the stock
             _stocks.Add(stock);
+            _amounts.Add(1);
             Console.WriteLine($"{_name} observing stock: {stock.Name} :: {stock.Value}");
         }
 
@@ -34,7 +36,7 @@ namespace Aflevering_1
         public void Update(Subject sub)
         {
             
-            Console.WriteLine($"UPDATING IN {Name}: \"{sub.Name}\"  CHANGING VALUE TO \"{sub.Value}\"\n");
+            Console.WriteLine($"UPDATING IN {Name}: \"{sub.Name}\"  CHANGING VALUE FROM \"{sub.OldValue.ToString("#.##")}\" TO \"{sub.Value.ToString("#.##")}\"\n");
             _display.Print(this);
         }
 
@@ -42,6 +44,6 @@ namespace Aflevering_1
         {
             get { return _name; }
         }
-
+        
     }
 }
