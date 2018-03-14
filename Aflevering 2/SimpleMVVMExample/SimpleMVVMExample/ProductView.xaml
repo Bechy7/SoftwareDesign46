@@ -1,0 +1,59 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:SimpleMVVMExample">
+    
+    <!-- 
+    The View can be defined in a UserControl, a DataTemplate, or a combination of the two. 
+    It can exist as it's own file, or it can be simply added to Window.Resources.
+    
+    My View is a ResourceDictionary that defines DataTemplates. This ResourceDictionary 
+    needs to be added to the application's ResourceDictionaries at runtime, so it is getting 
+    added it in the MainWindow's Window.Resources XAML.
+    -->
+
+    <!-- DataTemplate for Product Model -->
+    <DataTemplate DataType="{x:Type local:ProductModel}">
+        <Border BorderBrush="Black" BorderThickness="1" Padding="20">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0"  Text="ID" VerticalAlignment="Center" Margin="5" />
+                <TextBox Grid.Row="0" Grid.Column="1"  Text="{Binding ProductId}" Margin="5" Width="150" />
+
+                <TextBlock Grid.Column="0" Grid.Row="1"  Text="Name" VerticalAlignment="Center" Margin="5" />
+                <TextBox Grid.Row="1" Grid.Column="1"  Text="{Binding ProductName}" Margin="5" Width="150" />
+
+                <TextBlock Grid.Column="0" Grid.Row="2"  Text="Unit Price" VerticalAlignment="Center" Margin="5" />
+                <TextBox Grid.Row="2" Grid.Column="1"  Text="{Binding UnitPrice}" Margin="5" Width="150" />
+
+            </Grid>
+        </Border>
+    </DataTemplate>
+
+    <!-- DataTemplate for Product ViewModel -->
+    <DataTemplate DataType="{x:Type local:ProductViewModel}">
+        <DockPanel Margin="20">
+            <DockPanel DockPanel.Dock="Top">
+                <TextBlock Margin="10,2" DockPanel.Dock="Left" Text="Enter Product Id" VerticalAlignment="Center" />
+
+                <TextBox Margin="10,2" Width="50" VerticalAlignment="Center" Text="{Binding Path=ProductId, UpdateSourceTrigger=PropertyChanged}" />
+
+                <Button Content="Save Product" DockPanel.Dock="Right" Margin="10,2" VerticalAlignment="Center"
+                        Command="{Binding Path=SaveProductCommand}" Width="100" />
+
+                <Button Content="Get Product" DockPanel.Dock="Right" Margin="10,2" VerticalAlignment="Center"
+                        Command="{Binding Path=GetProductCommand}" IsDefault="True" Width="100" />
+            </DockPanel>
+
+            <ContentControl Margin="10" Content="{Binding Path=CurrentProduct}" />
+        </DockPanel>
+    </DataTemplate>
+</ResourceDictionary>
