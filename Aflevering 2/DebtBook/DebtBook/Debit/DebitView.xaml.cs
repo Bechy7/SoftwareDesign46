@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DebtBook
+namespace DebtBook.Debit
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DebitView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DebitView : Page
     {
-        public MainWindow()
+        public DebitView()
         {
             InitializeComponent();
         }

@@ -7,18 +7,6 @@
         mc:Ignorable="d"
         Title="Debtbook" Height="350" Width="525">
     <DockPanel>
-        <DataGrid Name="Debitors" AutoGenerateColumns="False" Width="519">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="First Name" Binding="{Binding Firstname}" />
-                    <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" />
-                <DataGridTextColumn Header="Total Debt" Binding="{Binding Debt}" />
-                    <DataGridTextColumn Header="Occupation" Binding="{Binding Occupation}" />
-            </DataGrid.Columns>
-                <DataGrid.RowDetailsTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Details}" Margin="10" />
-                    </DataTemplate>
-                </DataGrid.RowDetailsTemplate>
-            </DataGrid>
+
     </DockPanel>
 </Window>
