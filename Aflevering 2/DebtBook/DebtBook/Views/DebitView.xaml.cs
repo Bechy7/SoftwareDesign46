@@ -10,15 +10,14 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DebtBook.Debit
+namespace DebtBook.Views
 {
     /// <summary>
     /// Interaction logic for DebitView.xaml
     /// </summary>
-    public partial class DebitView : Page
+    public partial class DebitView : UserControl
     {
         public DebitView()
         {
