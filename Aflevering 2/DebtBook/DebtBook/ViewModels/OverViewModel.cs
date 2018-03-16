@@ -100,6 +100,13 @@ namespace DebtBook.ViewModels
             }
             set { debtlist = value; RaisePropertyChanged(); }
         }
+        //Adder stuff til listen i model så man kan se dem i VIEW
+        public void AddDebitor(Debt deblist)
+        {
+            deblist.Debitors.Add(new Debitor() {Id = 1, Name = "Hans", )
+        }
+
+
 
     }
 
