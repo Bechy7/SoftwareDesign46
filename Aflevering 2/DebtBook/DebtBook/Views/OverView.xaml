@@ -8,11 +8,5 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
         Height="300" Width="300">
-    <DataGrid>
-        <DataGrid.Columns>
-            <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Name"/>
-            <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Debt"/>
-        </DataGrid.Columns>
-
-    </DataGrid>
+    <TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/>
 </UserControl>

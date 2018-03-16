@@ -9,7 +9,7 @@
         Title="Debtbook" Height="350" Width="525">
     <DockPanel>
         <ContentControl>
-            <views:OverView />
+            <views:DebitView />
         </ContentControl>
     </DockPanel>
 </Window>

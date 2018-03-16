@@ -9,6 +9,6 @@
         mc:Ignorable="d"
         Height="300" Width="300">
     <Grid>
-        <TextBox Text="test"></TextBox>
+        <TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"></TextBox>
     </Grid>
 </UserControl>
