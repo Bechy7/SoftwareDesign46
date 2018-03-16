@@ -8,30 +8,19 @@ namespace DebtBook.Model
 {
     class Model
     {
-        public string Name { get; set; }
-        public double Debt { get; set; }
+        public List<Debitor> Debitors { get; set; }
     }
 
-    //class Debitor
-    //{
-    //    public string Name { get; set; }
+    class Debt
+    {
+        public string Subject { get; set; }
+        public double Value { get; set; }
+    }
 
-    //    List<Debits> Debts = new List<Debits>();
+    class Debitor
+    {
+        public string Name { get; set; }
 
-    //    public void setDebt(string title ,double amount)
-    //    {
-    //        Debits setDeb = new Debits();
-    //        setDeb.Amount = amount;
-    //        setDeb.Title = title;
-    //        Debts.Add(setDeb);
-    //        Debts.Add(setDeb);
-    //    }
-    //}
-
-    //class Debits
-    //{
-    //    public string Title { get; set; }
-    //    public double Amount { get; set; }
-    //}
-
+        public List<Debt> Debts { get; set; }
+    }
 }
