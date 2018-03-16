@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Navigation;
 using Prism.Mvvm;
 using DebtBook.Model;
+
+
 namespace DebtBook.ViewModels
 {
     public class OverViewModel : BindableBase
@@ -24,5 +27,80 @@ namespace DebtBook.ViewModels
             //Text = "Hans";    
             //debts_.Add(new DebitorModel() { id = 1, name = "Hans" , debting = 50 });
         }
+
+        public Debitor SelectedDebitor
+        {
+            get
+            {
+                return this.SelectedDebitor;
+            }
+            set
+            {
+                this.SelectedDebitor = value;
+                RaisePropertyChanged("SelectedDebitor");
+                RaisePropertyChanged("Debts");
+            }
+        }
+        public ObservableCollection<Debt> Debts
+        {
+            get
+            {
+                return new ObservableCollection<Debt>(SelectedDebitor.Debts.ToList());
+            }
+        }
+        //Events for adding
+        
+
+        //Adding stuff
+        
+     
+
     }
+    public class DebitorVM : BindableBase
+    {
+        Debitor Debitors;
+        public DebitorVM(Debitor man)
+        {
+            Debitors = man;
+        }
+
+        public int Id
+        {
+            get
+            {
+                return Debitors.Id;
+            }
+
+            //Tester nogle forskellige "Changes"
+            set { Debitors.Id = value; RaisePropertyChanged(); }
+            
+        }
+        public string Name
+        {
+            get
+            {
+                return Debitors.Name;
+            }
+
+            //Tester nogle forskellige "Changes"
+            set { Debitors.Name = value; RaisePropertyChanged(); }
+        }
+        ObservableCollection<Debt> debtlist;
+        public ObservableCollection<Debt> Debtlist
+        {
+            get
+            {
+                //Lav en ny liste hvis der er nul
+                if (Debtlist == null)
+                {
+                    Debtlist = new ObservableCollection<Debt>(Debitors.Debts);
+                }
+                return debtlist;
+
+            }
+            set { debtlist = value; RaisePropertyChanged(); }
+        }
+
+    }
+
 }

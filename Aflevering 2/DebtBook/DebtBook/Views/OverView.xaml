@@ -8,5 +8,28 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
         Height="300" Width="300">
-    <TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/>
+    <DataGrid Name="Debitors" AutoGenerateColumns="False">
+     
+        <DataGrid.Columns>
+           
+            <DataGridTextColumn Header="Name" Binding="{Binding Debitor}" />
+            <DataGridTextColumn Header="Debt" Binding="{Binding Debt}" />
+          
+        </DataGrid.Columns>
+       
+        <DataGrid.RowDetailsTemplate>
+          
+            <DataTemplate>
+              
+                <TextBlock Text="{Binding Details}" Margin="10" />
+              
+            </DataTemplate>
+          
+        </DataGrid.RowDetailsTemplate>
+      
+    </DataGrid>
+
+    <!-- Outputter HANS oppe i toppen af poppen -->
+    <!--<TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/> -->
+    
 </UserControl>
