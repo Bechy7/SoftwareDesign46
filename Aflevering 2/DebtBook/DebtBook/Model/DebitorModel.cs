@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DebtBook.Model
 {
-    public class Model
+    public class DebitorModel
     {
         public List<Debitor> Debitors { get; set; }
     }
