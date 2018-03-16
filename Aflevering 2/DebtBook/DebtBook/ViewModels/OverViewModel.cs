@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DebtBook.ViewModels
 {
-    class OverViewModel
+    public class OverViewModel
     {
+
     }
 }
