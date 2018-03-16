@@ -9,12 +9,13 @@ namespace DebtBook.Model
     public class DebitorModel
     {
         //public List<Debitor> Debitors { get; set; }
-        public Debt debt { get; set; }
-        public int id { get; set; }
+        //public Debt debt { get; set; }
+        //public int id { get; set; }
     }
 
     public class Debt
     {
+        public int Id { get; set; }
         public string Subject { get; set; }
         public double Value { get; set; }
 
@@ -22,8 +23,8 @@ namespace DebtBook.Model
 
     public class Debitor
     {
+        public int Id { get; set; }
         public string Name { get; set; }
-
-        //public List<Debt> Debts { get; set; }
+        public List<Debt> Debts { get; set; }
     }
 }
