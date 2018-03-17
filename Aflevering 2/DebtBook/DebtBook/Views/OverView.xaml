@@ -7,31 +7,37 @@
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
-        Height="300" Width="300">
+        Height="350" Width="525">
     <!-- Dette lokalisere den rette text, den virker som den ned i bunden -->
-    <DataGrid ItemsSource="{Binding DebtList}" Name="Debitors" AutoGenerateColumns="False">
-     
-        <DataGrid.Columns>
 
-            <!--Indsætter de bindings til det der ligger i DebitorModel (Person klassen)-->
-            <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True"/>
-            <DataGridTextColumn Header="Name" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
-            <DataGridTextColumn Header="Total debt" Binding="{Binding TotalDebt}" IsReadOnly="True"/>
-          
-        </DataGrid.Columns>
-       
-        <DataGrid.RowDetailsTemplate>
-          
-            <DataTemplate>
-                <!-- Det her fuckede med systemet, don't open it ever again -->
+    <DockPanel>
+        <TextBlock Text="Overview of debitors" DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="30"/>
+        <DataGrid ItemsSource="{Binding DebtList}" Name="Debitors" AutoGenerateColumns="False" HorizontalAlignment="Left">
 
-                <!-- <TextBlock Text="{Binding Text}" Margin="10" />-->
+            <DataGrid.Columns>
 
-            </DataTemplate>
-          
-        </DataGrid.RowDetailsTemplate>
-        <!--<TextBlock Text="{Binding Text,UpdateSourceTrigger=PropertyChanged}"/>-->
-    </DataGrid>
+                <!--Indsætter de bindings til det der ligger i DebitorModel (Person klassen)-->
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+                <DataGridTextColumn Header="Total debt" Binding="{Binding TotalDebt}" IsReadOnly="True" Width="*"/>
+
+            </DataGrid.Columns>
+
+            <DataGrid.RowDetailsTemplate>
+
+                <DataTemplate>
+                    <!-- Det her fuckede med systemet, don't open it ever again -->
+
+                    <!-- <TextBlock Text="{Binding Text}" Margin="10" />-->
+
+                </DataTemplate>
+
+            </DataGrid.RowDetailsTemplate>
+            <!--<TextBlock Text="{Binding Text,UpdateSourceTrigger=PropertyChanged}"/>-->
+        </DataGrid>
+
+    </DockPanel>
+    
 
     <!-- Outputter HANS oppe i toppen af poppen -->
     <!--<TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/> -->

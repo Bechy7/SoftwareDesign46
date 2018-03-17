@@ -8,7 +8,29 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
         Height="300" Width="300">
-    <Grid>
-        <TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-    </Grid>
+
+    <DockPanel>
+        <TextBlock Text="Overview of debitor" DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="30"/>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <TextBlock Text="{Binding Text}" FontSize="20" />
+            <TextBlock Text="( Id: " FontSize="20"/>
+            <TextBlock Text="{Binding Id}" FontSize="20"/>
+            <TextBlock Text=" )" FontSize="20"/>
+        </StackPanel>
+
+        <DataGrid ItemsSource="{Binding DebtList}" Name="Debitors" AutoGenerateColumns="False" HorizontalAlignment="Left">
+
+            <DataGrid.Columns>
+
+
+                <!--Indsætter de bindings til det der ligger i DebitorModel (Person klassen)-->
+                <DataGridTextColumn Header="Subject" Binding="{Binding Subject, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+                <DataGridTextColumn Header="Value" Binding="{Binding Value}" IsReadOnly="True" Width="*"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+    
+
+
 </UserControl>

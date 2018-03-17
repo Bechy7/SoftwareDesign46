@@ -13,5 +13,14 @@ namespace DebtBook
     /// </summary>
     public partial class App : Application
     {
+        //Overrides to call instance of Bootstrapper
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            var bs = new Bootstrapper();
+
+            bs.Run();
+        }
     }
 }

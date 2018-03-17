@@ -24,7 +24,7 @@ namespace DebtBook.Views
         public OverView()
         {
             InitializeComponent();
-            this.DataContext = new OverViewModel();
+            //this.DataContext = new OverViewModel();
         }
     }
 }

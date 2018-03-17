@@ -27,7 +27,15 @@ namespace DebtBook.ViewModels
         {
             get { return _text; }
             set { SetProperty(ref _text, value); }
-        } 
+        }
+
+        private int _id = 1;
+
+        public int Id
+        {
+            get { return _id; }
+            set { SetProperty(ref _id, value); }
+        }
 
         public DebitViewModel()
         {
