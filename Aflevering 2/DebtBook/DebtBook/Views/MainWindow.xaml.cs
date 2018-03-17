@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DebtBook.ViewModels;
 
-namespace DebtBook
+namespace DebtBook.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -24,6 +24,7 @@ namespace DebtBook
         public MainWindow()
         {
             InitializeComponent();
+            //this.DataContext = new MainWindowViewModel();
         }
     }
 }

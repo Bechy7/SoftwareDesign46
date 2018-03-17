@@ -24,7 +24,7 @@ namespace DebtBook.Views
         public DebitView()
         {
             InitializeComponent();
-            this.DataContext = new DebitViewModel();
+            //this.DataContext = new DebitViewModel();
         }
     }
 }

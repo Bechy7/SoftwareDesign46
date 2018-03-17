@@ -22,15 +22,12 @@ namespace DebtBook.ViewModels
             _regionManager = regionManager;
 
             NavigateCommand = new DelegateCommand<string>(Navigate);
-            MessageBox.Show("mainwindow");
-
         }
 
         private void Navigate(string uri)
         {
             // Request to ContentRegion passing the uri
             _regionManager.RequestNavigate("ContentRegion", uri);
-            MessageBox.Show("navigate");
         }
     }
 }
