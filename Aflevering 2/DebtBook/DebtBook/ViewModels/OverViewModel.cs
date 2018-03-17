@@ -5,6 +5,7 @@ using System.Linq;
 using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Navigation;
 using Prism.Mvvm;
 using DebtBook.Model;
@@ -18,42 +19,61 @@ namespace DebtBook.ViewModels
 
 
         //Lav en observableliste af den liste du har i Model (I det her tilfælde <Person>)
-        ObservableCollection<Person> debtlist;
+        private ObservableCollection<Debitor> _debtlist;
         //Navnet ligger i XAML filen, jeg er sikker på dette navn (pga. bindings sucks) og derfor har jeg "afbenyttet" mig af dette navn, pls don't delete or change indtil du er sikker at du kan finde den korrekte binding
-        public ObservableCollection<Person> DebtList
+        public ObservableCollection<Debitor> DebtList
         {
             get
             {
-                if (debtlist == null)
-                {
-                    debtlist = new ObservableCollection<Person>();
-                }
-                return debtlist;
+                return _debtlist;
             }
-            set { SetProperty(ref debtlist, value); }
+            set { SetProperty(ref _debtlist, value); }
         }
 
         //Konstruktøreren er det eneste der bliver eksekveret i Overview Xaml, tilføj evt. klasserne her
+
         public OverViewModel()
         {
             //Laver en ny liste fra Persons elementerne
-            debtlist = new ObservableCollection<Person>();
+            _debtlist = new ObservableCollection<Debitor>();
+
+                //(
+                //new List<Debitor>( )
+                //);
+
+            _debtlist.Add(new Debitor("Hansi", new List<Debt> { new Debt("Hus", 20000), new Debt("Mad", 200) }));
+            _debtlist.Add(new Debitor("Bent", new List<Debt> { new Debt("Intet", 2.1), new Debt("Hehe", 321.2) }));
+            _debtlist.Add(new Debitor("Jørgen", new List<Debt> { new Debt("tralal", 0.6), new Debt("noget?", 231) }));
+            _debtlist.Add(new Debitor("Ashalais", new List<Debt> { new Debt("lol", 31233123) }));
+            _debtlist.Add(new Debitor("Namnam", new List<Debt> { new Debt("eh", 232.1) }));
+            _debtlist.Add(new Debitor("Det mit navn", new List<Debt> { new Debt("hygge", 21234), new Debt("dont recall", 212) }));
+
             //Husk at tilføje debts hardcoded ind
-            AddDebt();
+            //AddDebt();
         }
  
         //Hardcoded Adder
-        public void AddDebt()
-        {
-            //Adder en masse hardcoded stuff
-            //debtlist = new ObservableCollection<Person>(debtlist); //Har man måske ikke brug for
-            debtlist.Add(new Person() { Id = 1, Name = "Hans", Debt = 500.1373 });
-            debtlist.Add(new Person() { Id = 2, Name = "Get", Debt = 300.7331 });
-            debtlist.Add(new Person() { Id = 3, Name = "Ze", Debt = 999.1337 });
-            debtlist.Add(new Person() { Id = 4, Name = "FLAMMENWERFER", Debt = 9191.1337 });
-            debtlist.Add(new Person() { Id = 5, Name = "SOFORT", Debt = 1337 });
-            debtlist.Add(new Person() { Id = 6, Name = "Hans", Debt = 500 });
-            debtlist.Add(new Person() { Id = 7, Name = "Hans", Debt = 500 });
+        //public void AddDebt()
+        //{
+        //    //Adder en masse hardcoded stuff
+        //    //debtlist = new ObservableCollection<Person>(debtlist); //Har man måske ikke brug for
+        //    //_debtlist.Add(new Person() { Id = 1, Name = "Hans", Debt = 500.1373 });
+
+        //    _debtlist.Add(new Debitor("Hansi", new List<Debt> { new Debt("Hus", 20000), new Debt("Mad", 200) }));
+        //    _debtlist.Add(new Debitor("Bent", new List<Debt> { new Debt("Intet", 2.1), new Debt("Hehe", 321.2) }));
+        //    _debtlist.Add(new Debitor("Jørgen", new List<Debt> { new Debt("tralal", 0.6), new Debt("noget?", 231) }));
+        //    _debtlist.Add(new Debitor("Ashalais", new List<Debt> { new Debt("lol", 31233123) }));
+        //    _debtlist.Add(new Debitor("Namnam", new List<Debt> { new Debt("eh", 232.1) }));
+        //    _debtlist.Add(new Debitor("Det mit navn", new List<Debt> { new Debt("hygge", 21234), new Debt("dont recall", 212) }));
+
+        //}
+           
+            //debtlist.Add(new Person() { Id = 2, Name = "Get", Debt = 300.7331 });
+            //debtlist.Add(new Person() { Id = 3, Name = "Ze", Debt = 999.1337 });
+            //debtlist.Add(new Person() { Id = 4, Name = "FLAMMENWERFER", Debt = 9191.1337 });
+            //debtlist.Add(new Person() { Id = 5, Name = "SOFORT", Debt = 1337 });
+            //debtlist.Add(new Person() { Id = 6, Name = "Hans", Debt = 500 });
+            //debtlist.Add(new Person() { Id = 7, Name = "Hans", Debt = 500 });
         }
     }
 
@@ -99,7 +119,7 @@ namespace DebtBook.ViewModels
 
 
 
-}
+
 //Second try
 //public class DebitorVM : BindableBase
 //{

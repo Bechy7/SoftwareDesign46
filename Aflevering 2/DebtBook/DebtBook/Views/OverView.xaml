@@ -14,9 +14,9 @@
         <DataGrid.Columns>
 
             <!--Indsætter de bindings til det der ligger i DebitorModel (Person klassen)-->
-            <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+            <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True"/>
             <DataGridTextColumn Header="Name" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
-            <DataGridTextColumn Header="Debt" Binding="{Binding Debt}" />
+            <DataGridTextColumn Header="Total debt" Binding="{Binding TotalDebt}" IsReadOnly="True"/>
           
         </DataGrid.Columns>
        
