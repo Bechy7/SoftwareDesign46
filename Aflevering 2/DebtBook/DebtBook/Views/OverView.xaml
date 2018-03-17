@@ -21,7 +21,7 @@
                             <Button Content="{Binding Id}">
                                 <Button.Command>
                                     <Binding RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}"
-                                             Path="DataContext.NavigateCommand" />
+                                             Path="DataContext.ShowDebitorCommand" />
                                 </Button.Command>
                             </Button>
                         </DataTemplate>

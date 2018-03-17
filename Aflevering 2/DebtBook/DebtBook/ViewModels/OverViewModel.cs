@@ -21,9 +21,7 @@ namespace DebtBook.ViewModels
     {
         //private string _text = "Hans"; //MIS (Må ikke slettes) Er crucial for koden til at virke
 
-        public DelegateCommand ShowDebitorCommand{ get; set; }
-
-        public DelegateCommand<string> NavigateCommand { get; set; }
+        public DelegateCommand<string> ShowDebitorCommand{ get; set; }
 
         private readonly IRegionManager _regionManager;
 
@@ -46,7 +44,7 @@ namespace DebtBook.ViewModels
         {
             //Laver en ny liste fra Persons elementerne
             _debtlist = new ObservableCollection<Debitor>();
-            NavigateCommand = new DelegateCommand<string>(Navigate);
+            ShowDebitorCommand = new DelegateCommand<string>(Navigate);
 
             _regionManager = regionManager;
            
@@ -62,16 +60,7 @@ namespace DebtBook.ViewModels
             _regionManager.RequestNavigate("ContentRegion", "DebitView");
         }
 
-        private void RandomCommandHah()
-        {
-            MessageBox.Show("sup");
-        }
-        private void Execute()
-        {
-            MessageBox.Show("Test");
-            _debtlist.Add(new Debitor("Namnam", new List<Debt> { new Debt("eh", 232.1) }));
-        }
-
+   
         //Hardcoded Adder
         public void AddDebt()
         {
