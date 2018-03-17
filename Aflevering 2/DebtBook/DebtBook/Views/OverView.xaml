@@ -8,25 +8,29 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
         Height="300" Width="300">
-    <DataGrid ItemsSource="{Binding DebitorVM}" Name="Debitors" AutoGenerateColumns="False">
+    <!-- Dette lokalisere den rette text, den virker som den ned i bunden -->
+    <DataGrid ItemsSource="{Binding Text}" Name="Debitors" AutoGenerateColumns="False">
      
         <DataGrid.Columns>
 
-            <DataGridTextColumn Header="Name" Binding="{Binding Text}" />
-            <DataGridTextColumn Header="Debt" Binding="{Binding Text}" />
+
+            <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+            <DataGridTextColumn Header="Name" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+            <DataGridTextColumn Header="Debt" Binding="{Binding Debt}" />
           
         </DataGrid.Columns>
        
         <DataGrid.RowDetailsTemplate>
           
             <DataTemplate>
+                <!-- Det her fuckede med systemet, don't open it ever again -->
 
-                <!--<TextBlock Text="{Binding Text}" Margin="10" />-->
-                
+                <!-- <TextBlock Text="{Binding Text}" Margin="10" />-->
+
             </DataTemplate>
           
         </DataGrid.RowDetailsTemplate>
-        <TextBlock Text="{Binding Text,UpdateSourceTrigger=PropertyChanged}"/>
+        <!--<TextBlock Text="{Binding Text,UpdateSourceTrigger=PropertyChanged}"/>-->
     </DataGrid>
 
     <!-- Outputter HANS oppe i toppen af poppen -->

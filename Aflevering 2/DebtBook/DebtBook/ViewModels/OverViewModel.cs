@@ -16,6 +16,7 @@ namespace DebtBook.ViewModels
     public class OverViewModel : BindableBase
     {
         private string _text = "Hans";
+        Person obj1;
 
         //Navnet ligger i XAML filen, jeg er sikker på dette navn (pga. bindings sucks) og derfor har jeg "afbenyttet" mig af dette navn, pls don't delete or change indtil du er sikker at du kan finde den korrekte binding
         public ObservableCollection<Person> Text
@@ -24,7 +25,8 @@ namespace DebtBook.ViewModels
             {
                 if (debtlist == null)
                 {
-                    debtlist = new ObservableCollection<Person>(debtlist);
+                    debtlist = new ObservableCollection<Person>();
+                    
                 }
                 return debtlist;
             }
@@ -37,11 +39,11 @@ namespace DebtBook.ViewModels
         {
             //Laver en ny liste fra Persons elementerne
             debtlist = new ObservableCollection<Person>();
-            debtlist.Add(new Person() { Id = 1, Name = "Hans", Debt = 500 });
-            
-            //debtlist = new ObservableCollection<Person>(debtlist);
-            //Text = "Hans";
-            //Debts.Add(new Debt() { Id = 1, Subject = "Something" });
+            debtlist.Add(new Person() { Id = 1, Name = "Hans", Debt = 500.1373 });
+            debtlist.Add(new Person() { Id = 2, Name = "Get", Debt = 300.7331 });
+            debtlist.Add(new Person() { Id = 3, Name = "Ze", Debt = 999.1337 });
+            debtlist.Add(new Person() { Id = 3, Name = "FLAMMENWERFER", Debt = 9191.1337 });
+            debtlist.Add(new Person() { Id = 3, Name = "SOFORT", Debt = 1337 });
         }
         ObservableCollection<Person> debtlist;
         public ObservableCollection<Person> Debtlist
