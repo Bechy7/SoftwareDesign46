@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +13,7 @@ namespace DebtBook
 {
     class Bootstrapper : UnityBootstrapper
     {
+
         //Returns instance of MainWindow 
         protected override DependencyObject CreateShell()
         {
@@ -33,5 +35,6 @@ namespace DebtBook
             Container.RegisterType(typeof(object), typeof(OverView), "OverView");
             Container.RegisterType(typeof(object), typeof(DebitView), "DebitView");
         }
+
     }
 }

@@ -20,7 +20,9 @@ namespace DebtBook.ViewModels
     {
         //private string _text = "Hans"; //MIS (Må ikke slettes) Er crucial for koden til at virke
 
-        //public ICommand AddDebitorCommand { get; set; }
+        public DelegateCommand ShowDebitorCommand{ get; set; }
+
+        private ICommand RandomCommand { get; set; }
         //Lav en observableliste af den liste du har i Model (I det her tilfælde <Person>)
         private ObservableCollection<Debitor> _debtlist;
         //Navnet ligger i XAML filen, jeg er sikker på dette navn (pga. bindings sucks) og derfor har jeg "afbenyttet" mig af dette navn, pls don't delete or change indtil du er sikker at du kan finde den korrekte binding
@@ -39,26 +41,24 @@ namespace DebtBook.ViewModels
         {
             //Laver en ny liste fra Persons elementerne
             _debtlist = new ObservableCollection<Debitor>();
-            MessageBox.Show("sd");
-            //AddDebitorCommand = new DelegateCommand(Execute, CanExcute);
+            ShowDebitorCommand = new DelegateCommand(Execute);
+            RandomCommand = new DelegateCommand(RandomCommandHah);
+            //MessageBox.Show("Test");
 
 
            //Husk at tilføje debts hardcoded ind
             AddDebt();
         }
 
-        //private bool CanExcute()
-        //{
-        //    return true;
-        //}
-
-        //private void Execute()
-        //{
-        //    if (this != _debtlist.Count)
-        //    var data = new Debitor("ny", new List<Debt> {new Debt("jeg har lånt ting", 232.1)});
-        //    _debtlist.Add(data);
-        //    //_debtlist.Add(new Debitor("Namnam", new List<Debt> { new Debt("eh", 232.1) }));
-        //}
+        private void RandomCommandHah()
+        {
+            MessageBox.Show("sup");
+        }
+        private void Execute()
+        {
+            MessageBox.Show("Test");
+            _debtlist.Add(new Debitor("Namnam", new List<Debt> { new Debt("eh", 232.1) }));
+        }
 
         //Hardcoded Adder
         public void AddDebt()

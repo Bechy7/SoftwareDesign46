@@ -11,18 +11,28 @@
     <!-- Dette lokalisere den rette text, den virker som den ned i bunden -->
 
     <DockPanel>
+        <Button Command="{Binding RandomCommand}" />
         <TextBlock Text="Overview of debitors" DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="30"/>
         <DataGrid ItemsSource="{Binding DebtList}" Name="Debitors" AutoGenerateColumns="False" HorizontalAlignment="Left">
 
             <DataGrid.Columns>
-
-                <!--Indsætter de bindings til det der ligger i DebitorModel (Person klassen)-->
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="*"/>
+                <DataGridTemplateColumn Header="Id (Click to see more)" IsReadOnly="True" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding Id}" Command="{Binding ShowDebitorCommand}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+               <!--Indsætter de bindings til det der ligger i DebitorModel (Person klassen)-->
                 <DataGridTextColumn Header="Name" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
                 <DataGridTextColumn Header="Total debt" Binding="{Binding TotalDebt}" IsReadOnly="True" Width="*"/>
 
             </DataGrid.Columns>
 
+            <!--<DataGrid.InputBindings>
+                <MouseBinding Gesture="LeftDoubleClick"
+                              Command="{Binding ShowDebitorCommand}" />
+            </DataGrid.InputBindings> />-->
             <DataGrid.RowDetailsTemplate>
 
                 <DataTemplate>
