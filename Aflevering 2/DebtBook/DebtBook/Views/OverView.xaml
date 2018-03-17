@@ -9,11 +9,11 @@
         mc:Ignorable="d"
         Height="300" Width="300">
     <!-- Dette lokalisere den rette text, den virker som den ned i bunden -->
-    <DataGrid ItemsSource="{Binding Text}" Name="Debitors" AutoGenerateColumns="False">
+    <DataGrid ItemsSource="{Binding DebtList}" Name="Debitors" AutoGenerateColumns="False">
      
         <DataGrid.Columns>
 
-
+            <!--Indsætter de bindings til det der ligger i DebitorModel (Person klassen)-->
             <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
             <DataGridTextColumn Header="Name" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
             <DataGridTextColumn Header="Debt" Binding="{Binding Debt}" />
