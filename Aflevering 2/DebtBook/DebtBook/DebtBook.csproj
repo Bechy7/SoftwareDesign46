@@ -84,6 +84,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Events\ShowDebitorrEvent.cs" />
     <Compile Include="ViewModels\DebitViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\OverViewModel.cs" />

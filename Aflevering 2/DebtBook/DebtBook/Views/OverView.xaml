@@ -11,7 +11,6 @@
     <!-- Dette lokalisere den rette text, den virker som den ned i bunden -->
 
     <DockPanel>
-        <Button Command="{Binding RandomCommand}" />
         <TextBlock Text="Overview of debitors" DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="30"/>
         <DataGrid ItemsSource="{Binding DebtList}" Name="Debitors" AutoGenerateColumns="False" HorizontalAlignment="Left">
 
@@ -19,7 +18,12 @@
                 <DataGridTemplateColumn Header="Id (Click to see more)" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="{Binding Id}" Command="{Binding ShowDebitorCommand}"/>
+                            <Button Content="{Binding Id}">
+                                <Button.Command>
+                                    <Binding RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}"
+                                             Path="DataContext.NavigateCommand" />
+                                </Button.Command>
+                            </Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

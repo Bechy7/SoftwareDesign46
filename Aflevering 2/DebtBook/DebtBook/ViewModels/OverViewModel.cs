@@ -12,6 +12,7 @@ using System.Windows.Navigation;
 using Prism.Mvvm;
 using DebtBook.Model;
 using Prism.Commands;
+using Prism.Regions;
 
 namespace DebtBook.ViewModels
 {
@@ -22,7 +23,11 @@ namespace DebtBook.ViewModels
 
         public DelegateCommand ShowDebitorCommand{ get; set; }
 
-        private ICommand RandomCommand { get; set; }
+        public DelegateCommand<string> NavigateCommand { get; set; }
+
+        private readonly IRegionManager _regionManager;
+
+        private DelegateCommand RandomCommand { get; set; }
         //Lav en observableliste af den liste du har i Model (I det her tilfælde <Person>)
         private ObservableCollection<Debitor> _debtlist;
         //Navnet ligger i XAML filen, jeg er sikker på dette navn (pga. bindings sucks) og derfor har jeg "afbenyttet" mig af dette navn, pls don't delete or change indtil du er sikker at du kan finde den korrekte binding
@@ -37,17 +42,24 @@ namespace DebtBook.ViewModels
 
         //Konstruktøreren er det eneste der bliver eksekveret i Overview Xaml, tilføj evt. klasserne her
 
-        public OverViewModel()
+        public OverViewModel(IRegionManager regionManager)
         {
             //Laver en ny liste fra Persons elementerne
             _debtlist = new ObservableCollection<Debitor>();
-            ShowDebitorCommand = new DelegateCommand(Execute);
-            RandomCommand = new DelegateCommand(RandomCommandHah);
-            //MessageBox.Show("Test");
+            NavigateCommand = new DelegateCommand<string>(Navigate);
+
+            _regionManager = regionManager;
+           
 
 
            //Husk at tilføje debts hardcoded ind
             AddDebt();
+        }
+
+        private void Navigate(string uri)
+        {
+            // Request to ContentRegion passing the uri
+            _regionManager.RequestNavigate("ContentRegion", "DebitView");
         }
 
         private void RandomCommandHah()
