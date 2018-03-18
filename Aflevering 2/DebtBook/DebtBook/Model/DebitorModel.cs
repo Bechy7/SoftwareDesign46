@@ -8,15 +8,7 @@ using Prism.Mvvm;
 
 namespace DebtBook.Model
 {
-    //Trial and error ting SIMPLIFY, den her virker med den nuværende version
-    //public class Person
-    //{
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-    //    public double Debt { get; set; }
-    //}
-
-    public class Debitor : BindableBase
+   public class Debitor : BindableBase
     {
         private static int _id;
 
