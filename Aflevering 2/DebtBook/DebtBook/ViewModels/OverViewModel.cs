@@ -21,13 +21,14 @@ namespace DebtBook.ViewModels
     {
         //private string _text = "Hans"; //MIS (Må ikke slettes) Er crucial for koden til at virke
 
-        public DelegateCommand<string> ShowDebitorCommand{ get; set; }
+        public DelegateCommand<Debitor> ShowDebitorCommand{ get; set; }
 
         private readonly IRegionManager _regionManager;
 
-        private DelegateCommand RandomCommand { get; set; }
         //Lav en observableliste af den liste du har i Model (I det her tilfælde <Person>)
         private ObservableCollection<Debitor> _debtlist;
+        private Debitor _debitor;
+
         //Navnet ligger i XAML filen, jeg er sikker på dette navn (pga. bindings sucks) og derfor har jeg "afbenyttet" mig af dette navn, pls don't delete or change indtil du er sikker at du kan finde den korrekte binding
         public ObservableCollection<Debitor> DebtList
         {
@@ -38,13 +39,22 @@ namespace DebtBook.ViewModels
             set { SetProperty(ref _debtlist, value); }
         }
 
+        public Debitor SelectedDebitor
+        {
+            get
+            {
+                return _debitor;
+            }
+            set { SetProperty(ref _debitor, value); }
+        }
+
         //Konstruktøreren er det eneste der bliver eksekveret i Overview Xaml, tilføj evt. klasserne her
 
         public OverViewModel(IRegionManager regionManager)
         {
             //Laver en ny liste fra Persons elementerne
             _debtlist = new ObservableCollection<Debitor>();
-            ShowDebitorCommand = new DelegateCommand<string>(Navigate);
+            ShowDebitorCommand = new DelegateCommand<Debitor> (Navigate);
 
             _regionManager = regionManager;
            
@@ -54,8 +64,10 @@ namespace DebtBook.ViewModels
             AddDebt();
         }
 
-        private void Navigate(string uri)
+        private void Navigate(Debitor curr)
         {
+            
+            MessageBox.Show(curr.Id.ToString());
             // Request to ContentRegion passing the uri
             _regionManager.RequestNavigate("ContentRegion", "DebitView");
         }
@@ -74,57 +86,37 @@ namespace DebtBook.ViewModels
             _debtlist.Add(new Debitor("Ashalais", new List<Debt> { new Debt("lol", 31233123) }));
             _debtlist.Add(new Debitor("Namnam", new List<Debt> { new Debt("eh", 232.1) }));
             _debtlist.Add(new Debitor("Det mit navn", new List<Debt> { new Debt("hygge", 21234), new Debt("dont recall", 212) }));
-
+            
         }
-
-        //debtlist.Add(new Person() { Id = 2, Name = "Get", Debt = 300.7331 });
-        //debtlist.Add(new Person() { Id = 3, Name = "Ze", Debt = 999.1337 });
-        //debtlist.Add(new Person() { Id = 4, Name = "FLAMMENWERFER", Debt = 9191.1337 });
-        //debtlist.Add(new Person() { Id = 5, Name = "SOFORT", Debt = 1337 });
-        //debtlist.Add(new Person() { Id = 6, Name = "Hans", Debt = 500 });
-        //debtlist.Add(new Person() { Id = 7, Name = "Hans", Debt = 500 });
     }
-    }
+}
 
 
-    //public ObservableCollection<Person> Debtlist
-    //{
-    //    get
-    //    {
-    //        //Lav en ny liste hvis der er nul
-    //        if (Debtlist == null)
-    //        {
-    //            Debtlist = new ObservableCollection<Person>();
-    //        }
-    //        return debtlist;
-    //
-    //    }
-    //    set { debtlist = value; RaisePropertyChanged(); }
-    //}
-    //public Debitor SelectedDebitor
-    //{
-    //    get
-    //    {
-    //        return this.SelectedDebitor;
-    //    }
-    //    set
-    //    {
-    //        this.SelectedDebitor = value;
-    //        RaisePropertyChanged("SelectedDebitor");
-    //        RaisePropertyChanged("Debts");
-    //    }
-    //}
-    //public ObservableCollection<Debt> Debts
-    //{
-    //    get
-    //    {
-    //        return new ObservableCollection<Debt>(SelectedDebitor.Debts.ToList());
-    //    }
-    //}
-    //Events for adding
+//public ObservableCollection<Person> Debtlist
+//{
+//    get
+//    {
+//        //Lav en ny liste hvis der er nul
+//        if (Debtlist == null)
+//        {
+//            Debtlist = new ObservableCollection<Person>();
+//        }
+//        return debtlist;
+//
+//    }
+//    set { debtlist = value; RaisePropertyChanged(); }
+//}
+//public ObservableCollection<Debt> Debts
+//{
+//    get
+//    {
+//        return new ObservableCollection<Debt>(SelectedDebitor.Debts.ToList());
+//    }
+//}
+//Events for adding
 
 
-    //Adding stuff men how?
+//Adding stuff men how?
 
 
 
