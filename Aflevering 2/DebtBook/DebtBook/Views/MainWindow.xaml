@@ -12,13 +12,7 @@
     <StackPanel Orientation="Horizontal">
         <StackPanel DockPanel.Dock="Left" VerticalAlignment="Center">
             <Button Content="Show OverView" Command="{Binding NavigateCommand}" CommandParameter="OverView" Margin="10"/>
-            <!--<Button Content="Change to DebitView" Command="{Binding NavigateCommand}" CommandParameter="DebitView" Margin="10"/>-->
         </StackPanel>
-        <ContentControl prism:RegionManager.RegionName="ContentRegion">
-        </ContentControl>
-        <!--<ContentControl>
-            <views:OverView />
-        </ContentControl>-->
-        <!--<Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Add new debitor" Command="{Binding AddDebitorCommand}"/>-->
+        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
     </StackPanel>
 </Window>

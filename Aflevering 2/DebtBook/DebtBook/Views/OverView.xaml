@@ -8,8 +8,6 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
         Height="350" Width="525">
-    <!-- Dette lokalisere den rette text, den virker som den ned i bunden -->
-
     <DockPanel>
         <TextBlock Text="Overview of debitors" DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="30"/>
         <DataGrid ItemsSource="{Binding DebtList}" Name="Debitors" AutoGenerateColumns="False" HorizontalAlignment="Left">
@@ -18,42 +16,18 @@
                 <DataGridTemplateColumn Header="Id (Click to see more)" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="{Binding Id}">
+                            <Button Content="{Binding Id}" CommandParameter="{Binding}">
                                 <Button.Command>
                                     <Binding RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}"
-                                             Path="DataContext.ShowDebitorCommand" />
+                                             Path="DataContext.ShowDebitorCommand"/>
                                 </Button.Command>
                             </Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-               <!--Indsætter de bindings til det der ligger i DebitorModel (Person klassen)-->
                 <DataGridTextColumn Header="Name" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
                 <DataGridTextColumn Header="Total debt" Binding="{Binding TotalDebt}" IsReadOnly="True" Width="*"/>
-
             </DataGrid.Columns>
-
-            <!--<DataGrid.InputBindings>
-                <MouseBinding Gesture="LeftDoubleClick"
-                              Command="{Binding ShowDebitorCommand}" />
-            </DataGrid.InputBindings> />-->
-            <DataGrid.RowDetailsTemplate>
-
-                <DataTemplate>
-                    <!-- Det her fuckede med systemet, don't open it ever again -->
-
-                    <!-- <TextBlock Text="{Binding Text}" Margin="10" />-->
-
-                </DataTemplate>
-
-            </DataGrid.RowDetailsTemplate>
-            <!--<TextBlock Text="{Binding Text,UpdateSourceTrigger=PropertyChanged}"/>-->
         </DataGrid>
-
     </DockPanel>
-    
-
-    <!-- Outputter HANS oppe i toppen af poppen -->
-    <!--<TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/> -->
-    
 </UserControl>

@@ -26,7 +26,7 @@ namespace DebtBook
             Application.Current.MainWindow.Show();
         }
 
-        // Need to override to be able to resolve types
+        //Need to override to be able to resolve types
         protected override void ConfigureContainer()
         {
             base.ConfigureContainer();
