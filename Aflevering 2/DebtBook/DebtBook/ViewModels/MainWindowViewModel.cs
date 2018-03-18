@@ -15,10 +15,12 @@ namespace DebtBook.ViewModels
         // Used to navigate around the application
         private readonly IRegionManager _regionManager;
 
+        // Used to navigate
         public DelegateCommand<string> NavigateCommand { get; set; }
 
         public MainWindowViewModel(IRegionManager regionManager)
         {
+            // Set the regionmanager and NavigateCommand to delegate to Navigate
             _regionManager = regionManager;
 
             NavigateCommand = new DelegateCommand<string>(Navigate);

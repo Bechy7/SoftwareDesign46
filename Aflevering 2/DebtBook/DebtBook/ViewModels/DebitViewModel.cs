@@ -15,118 +15,45 @@ namespace DebtBook.ViewModels
     class DebitViewModel : BindableBase
     {
 
-
-
-        //public List<Debitor> Debitors { get; set; }
-
-
-        //public string name  { get; set; }
-        //public double debting { get; set; }
-        //public int id { get; set; }
-        //public double gaeld = 50;
-
+        // Current debitor with list, name, id
         private Debitor _currentDebitor;
-        private string _name = "test";
+
         private List<Debt> _debts;
         private int _id;
+        private string _name;
 
-        //public string Text
-        //{
-        //    get { return _text; }
-        //    set { SetProperty(ref _text, value); }
-        //}
-
-        //private int _id = 1;
-
-        //public int Id
-        //{
-        //    get { return _id; }
-        //    set { SetProperty(ref _id, value); }
-        //}
-        //ShowDebitorEvent.Instance.Subscribe(ShowDebitorEvent);
         public DebitViewModel()
         {
-            //MessageBox.Show("hej");
+            // Subscribe to ShowDebitoEvent
+            // Call RegisterDebitor with parameter Debitor when event received
             ShowDebitorEvent.Instance.Subscribe(RegisterDebitor);
-
-
-            //Text = "Hans";    
-            //debts_.Add(new DebitorModel() { id = 1, name = "Hans" , debting = 50 });
         }
 
+        // When event is received, set values
         void RegisterDebitor(Debitor debitor)
         {
             Name = debitor.Name;
             Debts = debitor.Debts;
             Id = debitor.Id;
-
-            //MessageBox.Show(debitor.Name);
-            //_currentDebitor = debitor;
         }
 
+        //Set and get Debitor properties
         public List<Debt> Debts
         {
-            get
-            {
-                //Lav en ny liste hvis der er nul
-                return _debts;
-
-            }
+            get { return _debts; }
             set { SetProperty(ref _debts, value); }
         }
 
-        //public Debitor CurrentDebitor
-        //{
-        //    get
-        //    {
-        //        MessageBox.Show(_currentDebitor.Name);
-        //        return _currentDebitor;
-        //    }
-        //    set
-        //    {
-        //        MessageBox.Show(_currentDebitor.Name);
-        //        SetProperty(ref _currentDebitor, value);
-        //    }
-        //}
-
         public string Name
         {
-            get
-            {
-                //MessageBox.Show(CurrentDebitor.Name);
-                return _name;
-            }
-            set
-            {
-                //_name = value;
-                SetProperty(ref _name, value);
-                //MessageBox.Show("name set");
-            }
+            get { return _name; }
+            set { SetProperty(ref _name, value); }
         }
 
         public int Id
         {
-            get
-            {
-                //MessageBox.Show(CurrentDebitor.Name);
-                return _id;
-            }
-            set
-            {
-                //_name = value;
-                SetProperty(ref _id, value);
-                //MessageBox.Show("name set");
-            }
+            get { return _id; }
+            set { SetProperty(ref _id, value); }
         }
-        //public DebitorModel Model { get; set; }
-
-        //private ObservableCollection<DebitorModel> debts_;
-
-        //public ObservableCollection<DebitorModel> Debts
-        //{
-        //    get { return debts_; }
-        //    set { debts_ = value; RaisePropertyChanged(); }
-        //}
-
     }
 }

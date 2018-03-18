@@ -10,8 +10,8 @@ namespace DebtBook.Model
 {
    public class Debitor : BindableBase
     {
+        // Id, name, list of debts and total debt amount
         private static int _id;
-
         private string _name;
         private List<Debt> _debts;
         private double _totalDebt;
@@ -19,30 +19,34 @@ namespace DebtBook.Model
 
         public Debitor(string debName, List<Debt> debDebts)
         {
-            //MessageBox.Show("Id:" + _id);
             Id = ++_id;
             Name = debName;
             Debts = debDebts;
         }
 
-        // In case names are identical, we need an ID
+        // In case names are identical, we need an ID, 
+        // created in constructor so is not set outside class
         public int Id { get; private set; }
 
-        public string Name 
+        // Set and return name 
+        public string Name
         {
             get { return _name; }
             set { SetProperty(ref _name, value); }
         }
 
+        // List of debts
         public List<Debt> Debts
         {
             get { return _debts; }
             set
             {
+                // Only updated when changed
                 if (_debts != value)
                 {
                     SetProperty(ref _debts, value);
-                    SetProperty(ref _totalDebt, value.Sum(newTotal => newTotal.Value));
+                    // Total debt is only set when list of debts is updated
+                    SetProperty(ref _totalDebt, value.Sum(newTotal => newTotal.Amount));
                 }
             }
         }
@@ -59,10 +63,10 @@ namespace DebtBook.Model
         public Debt(string sub, double amount)
         {
             Subject = sub;
-            Value = amount;
+            Amount = amount;
         }
 
         public string Subject { get; set; }
-        public double Value { get; set; }
+        public double Amount { get; set; }
     }
 }
