@@ -36,13 +36,6 @@ namespace DebtBook.ViewModels
             set { SetProperty(ref _debitorList, value); }
         }
 
-        public Debitor SelectedDebitor
-        {
-            get { return _debitor; }
-            set { SetProperty(ref _debitor, value); }
-        }
-
-
         public OverViewModel(IRegionManager regionManager)
         {
             //New list of debitors
