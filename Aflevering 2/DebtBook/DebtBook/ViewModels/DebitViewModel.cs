@@ -27,6 +27,8 @@ namespace DebtBook.ViewModels
 
         private Debitor _currentDebitor;
         private string _name = "test";
+        private List<Debt> _debts;
+        private int _id;
 
         //public string Text
         //{
@@ -55,8 +57,22 @@ namespace DebtBook.ViewModels
         void RegisterDebitor(Debitor debitor)
         {
             Name = debitor.Name;
+            Debts = debitor.Debts;
+            Id = debitor.Id;
+
             //MessageBox.Show(debitor.Name);
             //_currentDebitor = debitor;
+        }
+
+        public List<Debt> Debts
+        {
+            get
+            {
+                //Lav en ny liste hvis der er nul
+                return _debts;
+
+            }
+            set { SetProperty(ref _debts, value); }
         }
 
         //public Debitor CurrentDebitor
@@ -84,6 +100,21 @@ namespace DebtBook.ViewModels
             {
                 //_name = value;
                 SetProperty(ref _name, value);
+                //MessageBox.Show("name set");
+            }
+        }
+
+        public int Id
+        {
+            get
+            {
+                //MessageBox.Show(CurrentDebitor.Name);
+                return _id;
+            }
+            set
+            {
+                //_name = value;
+                SetProperty(ref _id, value);
                 //MessageBox.Show("name set");
             }
         }

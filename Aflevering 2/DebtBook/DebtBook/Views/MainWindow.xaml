@@ -8,7 +8,7 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         xmlns:views="clr-namespace:DebtBook.Views"
         mc:Ignorable="d"
-        Title="Debtbook" Height="350" Width="525">
+        Title="Debtbook" MinHeight="350" Height="200" Width="700">
     <StackPanel Orientation="Horizontal">
         <StackPanel DockPanel.Dock="Left" VerticalAlignment="Center">
             <Button Content="Show OverView" Command="{Binding NavigateCommand}" CommandParameter="OverView" Margin="10"/>

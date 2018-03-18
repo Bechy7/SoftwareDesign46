@@ -10,25 +10,19 @@
         Height="300" Width="300">
 
     <DockPanel>
-        <TextBlock Text="Overview of debitor" DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="30"/>
-        <!--<StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+        <TextBlock Text="Debit of" DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="30"/>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
             <TextBlock Text="{Binding Name}" FontSize="20" />
             <TextBlock Text="( Id: " FontSize="20"/>
             <TextBlock Text="{Binding Id}" FontSize="20"/>
             <TextBlock Text=" )" FontSize="20"/>
-        </StackPanel>-->
-    <TextBlock Text="{Binding Name}"/>
-        <!--<DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left">
-
+        </StackPanel>
+        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding Debts}">
             <DataGrid.Columns>
-
-
-                --><!--Indsætter de bindings til det der ligger i DebitorModel (Person klassen)--><!--
-                <DataGridTextColumn Header="Subject" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+                <DataGridTextColumn Header="Subject" Binding="{Binding Subject, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
                 <DataGridTextColumn Header="Value" Binding="{Binding Value}" IsReadOnly="True" Width="*"/>
-
             </DataGrid.Columns>
-        </DataGrid>-->
+        </DataGrid>
     </DockPanel>
     
 
