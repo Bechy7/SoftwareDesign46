@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Navigation;
+using DebtBook.Events;
 using Prism.Mvvm;
 using DebtBook.Model;
 
@@ -13,6 +14,8 @@ namespace DebtBook.ViewModels
 {
     class DebitViewModel : BindableBase
     {
+
+
 
         //public List<Debitor> Debitors { get; set; }
 
@@ -22,27 +25,67 @@ namespace DebtBook.ViewModels
         //public int id { get; set; }
         //public double gaeld = 50;
 
-        private string _text = "Hans";
+        private Debitor _currentDebitor;
+        private string _name = "test";
 
-        public string Text
-        {
-            get { return _text; }
-            set { SetProperty(ref _text, value); }
-        }
+        //public string Text
+        //{
+        //    get { return _text; }
+        //    set { SetProperty(ref _text, value); }
+        //}
 
-        private int _id = 1;
+        //private int _id = 1;
 
-        public int Id
-        {
-            get { return _id; }
-            set { SetProperty(ref _id, value); }
-        }
-
+        //public int Id
+        //{
+        //    get { return _id; }
+        //    set { SetProperty(ref _id, value); }
+        //}
+        //ShowDebitorEvent.Instance.Subscribe(ShowDebitorEvent);
         public DebitViewModel()
         {
-           
+            //MessageBox.Show("hej");
+            ShowDebitorEvent.Instance.Subscribe(RegisterDebitor);
+
+
             //Text = "Hans";    
             //debts_.Add(new DebitorModel() { id = 1, name = "Hans" , debting = 50 });
+        }
+
+        void RegisterDebitor(Debitor debitor)
+        {
+            Name = debitor.Name;
+            //MessageBox.Show(debitor.Name);
+            //_currentDebitor = debitor;
+        }
+
+        //public Debitor CurrentDebitor
+        //{
+        //    get
+        //    {
+        //        MessageBox.Show(_currentDebitor.Name);
+        //        return _currentDebitor;
+        //    }
+        //    set
+        //    {
+        //        MessageBox.Show(_currentDebitor.Name);
+        //        SetProperty(ref _currentDebitor, value);
+        //    }
+        //}
+
+        public string Name
+        {
+            get
+            {
+                //MessageBox.Show(CurrentDebitor.Name);
+                return _name;
+            }
+            set
+            {
+                //_name = value;
+                SetProperty(ref _name, value);
+                //MessageBox.Show("name set");
+            }
         }
         //public DebitorModel Model { get; set; }
 
@@ -53,6 +96,6 @@ namespace DebtBook.ViewModels
         //    get { return debts_; }
         //    set { debts_ = value; RaisePropertyChanged(); }
         //}
-     
+
     }
 }

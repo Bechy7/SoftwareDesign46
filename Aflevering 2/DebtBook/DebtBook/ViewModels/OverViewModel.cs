@@ -9,9 +9,12 @@ using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Navigation;
+using DebtBook.Events;
 using Prism.Mvvm;
 using DebtBook.Model;
+using DebtBook.Views;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Regions;
 
 namespace DebtBook.ViewModels
@@ -19,8 +22,7 @@ namespace DebtBook.ViewModels
     //BindableBase giver os Prism.Mvvm med observablecollection, Observablecollection giver os automatisk events som Inotify og changes
     public class OverViewModel : BindableBase
     {
-        //private string _text = "Hans"; //MIS (Må ikke slettes) Er crucial for koden til at virke
-
+        
         public DelegateCommand<Debitor> ShowDebitorCommand{ get; set; }
 
         private readonly IRegionManager _regionManager;
@@ -66,10 +68,15 @@ namespace DebtBook.ViewModels
 
         private void Navigate(Debitor curr)
         {
-            
-            MessageBox.Show(curr.Id.ToString());
-            // Request to ContentRegion passing the uri
+            ShowDebitorEvent.Instance.Publish(curr);
             _regionManager.RequestNavigate("ContentRegion", "DebitView");
+            //ShowDebitorEvent.Instance.Publish(curr.Id.ToString());
+            
+            //MessageBox.Show(curr.Id.ToString());
+           
+            //_regionManager.AddViewModel<EditCustomerViewModel>("SomeRegion", customerId => 31);
+            // Request to ContentRegion passing the uri
+            //_regionManager.RequestNavigate("ContentRegion", "DebitView");
         }
 
    

@@ -5,6 +5,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using DebtBook.ViewModels;
 using DebtBook.Views;
 using Microsoft.Practices.Unity;
 using Prism.Unity;
@@ -17,6 +18,7 @@ namespace DebtBook
         //Returns instance of MainWindow 
         protected override DependencyObject CreateShell()
         {
+            //return Container.Resolve<DebitView>();
             return Container.Resolve<MainWindow>();
         }
 
