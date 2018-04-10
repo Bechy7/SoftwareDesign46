@@ -1,13 +1,13 @@
 ﻿using System;
 using NavyCompositePattern.Interfaces;
 
-namespace NavyCompositePattern.Classes
+namespace NavyCompositePattern.Leaves
 {
-    public class Leaf : Component
+    public class Hauptman : Component
     {
         public void Operation()
         {
-            Console.WriteLine("Leaf");
+            Console.WriteLine("Hauptman");
         }
     }
 }

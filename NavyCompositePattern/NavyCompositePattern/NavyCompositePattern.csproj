@@ -42,15 +42,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Composite.cs" />
-    <Compile Include="Classes\Leaf.cs" />
+    <Compile Include="Composite\Staff.cs" />
+    <Compile Include="Composite\Composite.cs" />
+    <Compile Include="Interfaces\IPrivate.cs" />
+    <Compile Include="Interfaces\ISmartgunner.cs" />
+    <Compile Include="Interfaces\ISpecialist.cs" />
+    <Compile Include="Leaves\Sturmoffizier.cs" />
     <Compile Include="Interfaces\Component.cs" />
+    <Compile Include="Leaves\Hauptman.cs" />
+    <Compile Include="Leaves\USF.cs" />
+    <Compile Include="Leaves\Obersturmfuhrer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Classes\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

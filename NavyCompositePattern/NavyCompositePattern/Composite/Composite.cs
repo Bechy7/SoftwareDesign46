@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using NavyCompositePattern.Interfaces;
 
-namespace NavyCompositePattern.Classes
+namespace NavyCompositePattern.Composite
 {
     //Template composite
-    public class Composite : Component
+    public class Composite : Component, IEnumerable
     {
         //Listen skal være af den attribute der skal composite
         private List<Component> _children = new List<Component>();
@@ -30,16 +30,16 @@ namespace NavyCompositePattern.Classes
         {
             return _children[index];
         }
-
-        //public IEnumerator GetEnumerator()
-        //{
-        //    foreach (Component child in _children)
-        //        yield return child;   
-        //}
-        //IEnumerator IEnumerable.GetEnumerator()
-        //{
-        //    return GetEnumerator();
-        //}
+        //Gør i stand til at kunne foreach det hele
+        public IEnumerator GetEnumerator()
+        {
+            foreach (Component child in _children)
+                yield return child;   
+        }
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
 
     }
 }
