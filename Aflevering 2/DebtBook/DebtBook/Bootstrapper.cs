@@ -29,14 +29,14 @@ namespace DebtBook
         }
 
         //Need to override to be able to resolve types
-        protected override void ConfigureContainer()
-        {
-            base.ConfigureContainer();
+        //protected override void ConfigureContainer()
+        //{
+        //    base.ConfigureContainer();
 
-            // Register types
-            Container.RegisterType(typeof(object), typeof(OverView), "OverView");
-            Container.RegisterType(typeof(object), typeof(DebitView), "DebitView");
-        }
+        //    // Register types
+        //    Container.RegisterType(typeof(object), typeof(OverView), "OverView");
+        //    Container.RegisterType(typeof(object), typeof(DebitView), "DebitView");
+        //}
 
     }
 }
