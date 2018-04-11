@@ -42,11 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Composite\Staff.cs" />
-    <Compile Include="Composite\Composite.cs" />
-    <Compile Include="Interfaces\IPrivate.cs" />
-    <Compile Include="Interfaces\Component.cs" />
-    <Compile Include="Leaves\Leaf.cs" />
+    <Compile Include="Templates\Staff.cs" />
+    <Compile Include="Templates\Composite.cs" />
+    <Compile Include="Templates\Component.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -55,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes\" />
+    <Folder Include="Leaves\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

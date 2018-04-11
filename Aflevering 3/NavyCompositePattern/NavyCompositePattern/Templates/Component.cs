@@ -1,4 +1,6 @@
-﻿namespace NavyCompositePattern.Interfaces
+﻿using System.Linq.Expressions;
+
+namespace NavyCompositePattern.Interfaces
 {
     public abstract class Component
     {
@@ -17,6 +19,9 @@
 
         }
 
-        
+        GetChild(int index)
+        {
+
+        }
     }
 }
