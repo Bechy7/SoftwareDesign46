@@ -42,20 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Composite\Operation.cs" />
-    <Compile Include="Composite\ColonialMarine.cs" />
-    <Compile Include="Templates\Staff.cs" />
-    <Compile Include="Templates\Composite.cs" />
-    <Compile Include="Templates\Component.cs" />
+    <Compile Include="NavyComposite.cs" />
+    <Compile Include="NavyLeaf.cs" />
+    <Compile Include="NavyComponent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\" />
-    <Folder Include="Leaves\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

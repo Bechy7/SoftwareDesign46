@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NavyCompositePattern.Composite;
-using NavyCompositePattern.Templates;
 
 
 namespace NavyCompositePattern
@@ -13,23 +11,27 @@ namespace NavyCompositePattern
     {
         static void Main(string[] args)
         {
-            Component daniboi = new Templates.Composite();
+
+            NavyComponent daniboi = new NavyComposite("daniboi", "mand", "highRank");
             
             daniboi.Name = "daniboi";
 
-            Component sørenboi= new Templates.Composite();
+            NavyComponent sørenboi= new NavyComposite("sørenboi", "mand", "highRankToo");
             sørenboi.Name = "soerenmightbeboesseboi";
 
-            ColonialMarine test = new ColonialMarine();
+            sørenboi.AddChild(new NavyLeaf("im small", "mand", "lavt"));
+
+            NavyComponent test = new NavyComposite("above all", "mand", "highest rank");
 
             test.AddChild(daniboi);
             test.AddChild(sørenboi);
-            
-            foreach (Component stuff in test)
-            {
-                //Console.Write();
-                stuff.Print();
-            }
+
+            test.Print(1);
+            //foreach (NavyComponent stuff in test)
+            //{
+            //    //Console.Write();
+            //    stuff.Print();
+            //}
             //_staff.Operation();
         }
     }
