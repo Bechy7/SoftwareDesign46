@@ -4,6 +4,16 @@ namespace NavyCompositePattern.Templates
 {
     public abstract class Component
     {
+        void SetCurrentOperation(string operation)
+        {
+            throw new NotSupportedException();
+        }
+
+        string GetCurrentOperation()
+        {
+            throw new NotSupportedException();
+        }
+
         public void AddChild(Component child)
         {
             throw new NotSupportedException();
