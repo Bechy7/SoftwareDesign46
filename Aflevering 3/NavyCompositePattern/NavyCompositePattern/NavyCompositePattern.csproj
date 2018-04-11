@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Composite\Operation.cs" />
+    <Compile Include="Composite\USCM.cs" />
     <Compile Include="Templates\Staff.cs" />
     <Compile Include="Templates\Composite.cs" />
     <Compile Include="Templates\Component.cs" />
