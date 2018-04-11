@@ -13,6 +13,7 @@ namespace NavyCompositePattern
     {
         static void Main(string[] args)
         {
+            //here
             Staff _staff = new Staff();
             IPrivate _pfc1 = new IPrivate {ID = 0,Name = "Fatima",Weapon ="M4A1"};
             IPrivate _pfc2 = new IPrivate{ID = 1, Name = "Daniel", Weapon = "M4A1"};
