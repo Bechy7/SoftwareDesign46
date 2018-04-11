@@ -46,7 +46,6 @@
     <Compile Include="Composite\Composite.cs" />
     <Compile Include="Interfaces\IPrivate.cs" />
     <Compile Include="Interfaces\Component.cs" />
-    <Compile Include="Leaves\Leaf.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -55,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes\" />
+    <Folder Include="Leaves\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
