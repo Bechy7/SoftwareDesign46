@@ -13,11 +13,6 @@ namespace NavyCompositePattern
     {
         static void Main(string[] args)
         {
-            //here
-
-            //_staff.AddChild(_pfc1);
-            //_staff.AddChild(_pfc2);
-
             Component daniboi = new Templates.Composite();
             
             daniboi.Name = "daniboi";
