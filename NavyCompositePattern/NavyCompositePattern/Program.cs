@@ -14,21 +14,17 @@ namespace NavyCompositePattern
         static void Main(string[] args)
         {
             Staff _staff = new Staff();
-            Obersturmfuhrer _unteroffizier1 = new Obersturmfuhrer();
-            Obersturmfuhrer _unteroffizier2 = new Obersturmfuhrer();
-            USF _grenadier = new USF();
+            IPrivate _pfc = new IPrivate {ID = 0,Name = "Fatima",Weapon ="Dildogun"};
 
-            _staff.AddChild(_unteroffizier1);
-            _staff.AddChild(_unteroffizier2);
-            _staff.Operation();
-            _staff.RemoveChild(_unteroffizier2);
-
-            _unteroffizier1.Operation();
-            foreach (USF soldiers in _staff)
+            _staff.AddChild(_pfc);
+                     
+            
+            foreach (IPrivate soldiers in _staff)
             {
-                Console.WriteLine("\n EmpID={0}, Name={1}", manager.EmpID, manager.Name);
+                Console.Write(_pfc.Name);
+                Console.WriteLine("\n ID = {0}, Name = {1}, Weapon = {2}",_pfc.ID, _pfc.Name, _pfc.Weapon);
             }
-            _staff.Operation();
+            //_staff.Operation();
         }
     }
 }

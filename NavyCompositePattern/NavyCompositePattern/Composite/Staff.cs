@@ -6,27 +6,27 @@ using NavyCompositePattern.Interfaces;
 namespace NavyCompositePattern.Composite
 {
     //Template composite
-    public class Staff : Component, IEnumerable
+    public class Staff : IPrivate, IEnumerable
     {
         //Listen skal være af den attribute der skal composite
-        private List<Component> _personnel = new List<Component>();
+        private List<IPrivate> _personnel = new List<IPrivate>();
         public void Operation()
         {
             string msg = string.Format($"Staff with {_personnel.Count} USMC(s)");
             Console.WriteLine(msg);
         }
 
-        public void AddChild(Component child)
+        public void AddChild(IPrivate soldier)
         {
-            _personnel.Add(child);
+            _personnel.Add(soldier);
         }
 
-        public void RemoveChild(Component child)
+        public void RemoveChild(IPrivate soldier)
         {
-            _personnel.Remove(child);
+            _personnel.Remove(soldier);
         }
 
-        public Component GetChild(int index)
+        public IPrivate GetChild(int index)
         {
             return _personnel[index];
         }
@@ -34,8 +34,8 @@ namespace NavyCompositePattern.Composite
         //Gør til at jeg kan foreach lortet
         public IEnumerator GetEnumerator()
         {
-            foreach (Component child in _personnel)
-                yield return child;
+            foreach (IPrivate soldier in _personnel)
+                yield return soldier;
         }
         IEnumerator IEnumerable.GetEnumerator()
         {

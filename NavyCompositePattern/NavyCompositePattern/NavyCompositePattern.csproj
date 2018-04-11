@@ -45,13 +45,8 @@
     <Compile Include="Composite\Staff.cs" />
     <Compile Include="Composite\Composite.cs" />
     <Compile Include="Interfaces\IPrivate.cs" />
-    <Compile Include="Interfaces\ISmartgunner.cs" />
-    <Compile Include="Interfaces\ISpecialist.cs" />
-    <Compile Include="Leaves\Sturmoffizier.cs" />
     <Compile Include="Interfaces\Component.cs" />
-    <Compile Include="Leaves\Hauptman.cs" />
-    <Compile Include="Leaves\USF.cs" />
-    <Compile Include="Leaves\Obersturmfuhrer.cs" />
+    <Compile Include="Leaves\Leaf.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
