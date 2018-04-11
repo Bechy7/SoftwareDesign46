@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NavyCompositePattern.Composite;
-using NavyCompositePattern.Interfaces;
 
 
 namespace NavyCompositePattern

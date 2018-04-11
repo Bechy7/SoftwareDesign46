@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using NavyCompositePattern.Interfaces;
+using NavyCompositePattern.Templates;
 
 namespace NavyCompositePattern.Composite
 {
