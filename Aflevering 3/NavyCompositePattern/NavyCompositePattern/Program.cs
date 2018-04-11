@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NavyCompositePattern.Composite;
+using NavyCompositePattern.Templates;
 
 
 namespace NavyCompositePattern
@@ -13,18 +14,26 @@ namespace NavyCompositePattern
         static void Main(string[] args)
         {
             //here
-            Staff _staff = new Staff();
-            IPrivate _pfc1 = new IPrivate {ID = 0,Name = "Fatima",Weapon ="M4A1"};
-            IPrivate _pfc2 = new IPrivate{ID = 1, Name = "Daniel", Weapon = "M4A1"};
 
-            _staff.AddChild(_pfc1);
-            _staff.AddChild(_pfc2);
-                     
+            //_staff.AddChild(_pfc1);
+            //_staff.AddChild(_pfc2);
+
+            Component daniboi = new Templates.Composite();
             
-            foreach (IPrivate soldiers in _staff)
+            daniboi.Name = "daniboi";
+
+            Component sørenboi= new Templates.Composite();
+            sørenboi.Name = "soerenmightbeboesseboi";
+
+            ColonialMarine test = new ColonialMarine();
+
+            test.AddChild(daniboi);
+            test.AddChild(sørenboi);
+            
+            foreach (Component stuff in test)
             {
                 //Console.Write();
-                Console.WriteLine("\n ID = {0}, Name = {1}, Weapon = {2}",soldiers.ID, soldiers.Name, soldiers.Weapon);
+                stuff.Print();
             }
             //_staff.Operation();
         }

@@ -6,21 +6,22 @@ using NavyCompositePattern.Templates;
 namespace NavyCompositePattern.Composite
 {
     //Template composite
-    public class USMC : Component, IEnumerable
+    public class ColonialMarine : Component, IEnumerable
     {
         private string _order;
         private bool _delegateOrder;
         //Listen skal være af den attribute der skal composite
         private List<Component> _officers = new List<Component>();
 
-        public void Print()
+        public override void Print()
         {
+            Console.WriteLine("Name: " + Name);
             //Soldater under ham
-            foreach (Component soldiers in _officers)
-            {
-                //Console.Write();
-                Console.WriteLine("\n Name = {0}, Gender = {1}", soldiers.GetGender() );
-            }
+
+            //foreach (Component soldiers in _officers)
+            //{
+            //    Console.WriteLine("\n Name = {0}, Gender = {1}", soldiers.GetGender());
+            //}
         }
 
         public void ExecuteOrder(string order, bool execute)

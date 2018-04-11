@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using NavyCompositePattern.Templates;
 
-namespace NavyCompositePattern.Composite
+namespace NavyCompositePattern.Templates
 {
     //Template composite
     public class Composite : Component, IEnumerable
     {
         //Listen skal være af den attribute der skal composite
         private List<Component> _children = new List<Component>();
-        public void Operation()
+        public override void Print()
         {
-            string msg = string.Format($"Composite with {_children.Count} child(ren)");
-            Console.WriteLine(msg);
+            //string msg = string.Format($"Composite with {_children.Count} child(ren)");
+            Console.WriteLine(Name);
         }
 
         public void AddChild(Component child)

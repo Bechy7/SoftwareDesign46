@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Composite\Operation.cs" />
-    <Compile Include="Composite\USCM.cs" />
+    <Compile Include="Composite\ColonialMarine.cs" />
     <Compile Include="Templates\Staff.cs" />
     <Compile Include="Templates\Composite.cs" />
     <Compile Include="Templates\Component.cs" />

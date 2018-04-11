@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace NavyCompositePattern.Templates
 {
     public abstract class Component
     {
+        public string Name { get; set; }
+
         void SetCurrentOperation(string operation)
         {
             throw new NotSupportedException();
@@ -45,7 +49,7 @@ namespace NavyCompositePattern.Templates
             //Give to subordinate below or delegate to leaf
         }
 
-        public void Print()
+        public virtual void Print()
         {
             throw new NotSupportedException();
         }
