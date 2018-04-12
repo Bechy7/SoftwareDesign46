@@ -12,82 +12,82 @@ namespace NavyCompositePattern
         static void Main(string[] args)
         {
 
-            var general = new NavyComposite("Amos", "Male", "General");
-            var captain1 = new NavyComposite("Daniel", "Male", "Captain");
-            var captain2 = new NavyComposite("Søren", "Male", "Captain");
-            var officer = new NavyComposite("Fatima", "Female", "Officer");
-            var officer2 = new NavyComposite("Jogvan", "Male", "Officer");
-            var private1 = new NavyLeaf("JensFup", "Male", "Private");
-            var private2 = new NavyLeaf("John", "Male", "Private");
+            var admiral = new NavyComposite("Amos", "Male", "Admiral");
+            var captain1 = new NavyComposite("Fatima", "Female", "Captain");
+            var captain2 = new NavyComposite("Jogvan", "Male", "Captain");
+            var lieutenant1 = new NavyComposite("Daniel", "Male", "Lieutenant");
+            var lieutenant2 = new NavyComposite("Søren", "Male", "Lieutenant");
+            var sailor1 = new NavyLeaf("JensFup", "Male", "Sailor");
+            var sailor2 = new NavyLeaf("John", "Male", "Sailor");
 
-            captain2.AddChild(private2);
-            captain2.AddChild(new NavyLeaf("Jensine", "Female", "Private"));
+            lieutenant2.AddChild(sailor2);
+            captain2.AddChild(new NavyLeaf("Jensine", "Female", "Sailor"));
 
-            captain1.AddChild(new NavyLeaf("Martin", "Male", "Private"));
+            lieutenant1.AddChild(new NavyLeaf("Martin", "Male", "Sailor"));
             
-            general.AddChild(officer);
-            general.AddChild(officer2);
+            admiral.AddChild(captain1);
+            admiral.AddChild(captain2);
 
-            officer.AddChild(captain1);
-            officer.AddChild(captain2);
+            captain1.AddChild(lieutenant1);
+            captain1.AddChild(lieutenant2);
 
-            officer2.AddChild(private1);
-            officer2.GiveOrder("Clean toilettes", false);
+            lieutenant2.AddChild(sailor1);
+            lieutenant2.GiveOrder("Clean toilettes", false);
 
-            officer.GiveOrder("Kill Søren", false);
+            captain1.GiveOrder("Kill Søren", false);
 
             Console.WriteLine("PRINTING FULL TREE");
             Console.WriteLine("---------------------------------");
 
-            general.Print();
+            admiral.Print();
 
             Console.WriteLine("---------------------------------");
 
             Console.WriteLine();
 
-            captain2.SetCurrentOperation("Sandstorm");
-            captain1.SetCurrentOperation("Kill_Kate");
+            lieutenant2.SetCurrentOperation("Sandstorm");
+            lieutenant1.SetCurrentOperation("Kill_Kate");
 
             Console.WriteLine("PRINTING FULL TREE");
             Console.WriteLine("---------------------------------");
 
-            general.Print();
+            admiral.Print();
 
             Console.WriteLine("---------------------------------");
 
-            captain1.AddChild(private2);
-            captain2.RemoveChild(private2);
+            lieutenant1.AddChild(sailor2);
+            lieutenant2.RemoveChild(sailor2);
 
             Console.WriteLine();
 
-            captain1.ExecuteOrder();
-            officer.RemoveChild(captain2);
+            lieutenant1.ExecuteOrder();
+            lieutenant1.RemoveChild(lieutenant2);
 
             Console.WriteLine("PRINTING FULL TREE");
             Console.WriteLine("---------------------------------");
 
-            general.Print();
+            admiral.Print();
 
             Console.WriteLine("---------------------------------\n");
 
-            general.GiveOrder("Invade Africa", false);
+            admiral.GiveOrder("Invade Africa", false);
 
 
-            captain1.GiveOrder("Make coffee for all captains", true);
+            lieutenant1.GiveOrder("Make coffee for all captains", true);
 
             Console.WriteLine("PRINTING FULL TREE");
             Console.WriteLine("---------------------------------");
 
-            general.Print();
+            admiral.Print();
 
             Console.WriteLine("---------------------------------\n");
 
-            private2.ExecuteOrder();
+            sailor2.ExecuteOrder();
 
-            Console.WriteLine($"PRINTING ONLY TREE UNDER {captain1.Name}");
+            Console.WriteLine($"PRINTING ONLY TREE UNDER {lieutenant1.Name}");
             Console.WriteLine("---------------------------------");
 
-            captain1.Print();
+            lieutenant1.Print();
 
             Console.WriteLine("---------------------------------");
 

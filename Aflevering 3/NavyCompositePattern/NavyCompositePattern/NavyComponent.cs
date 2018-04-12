@@ -9,7 +9,7 @@ namespace NavyCompositePattern
         // Declare list of subordinates and define all properties
         public List<NavyComponent> Subordinates = new List<NavyComponent>();
         public virtual string Name { get; }
-        public virtual string Rank { get; set; }
+        public virtual string Rank { get; }
         public virtual string Gender { get; }
         public virtual string Operation { get; set; }
         public virtual string Order { get; set; }
@@ -22,7 +22,7 @@ namespace NavyCompositePattern
             Gender = gender;
         }
 
-        
+        // Define all methods available to NavyLeaf and NavyComposite
         public virtual void SetCurrentOperation(string operation) { throw new NotSupportedException(); }
 
         public virtual void AddChild(NavyComponent child) { throw new NotSupportedException(); }
@@ -31,8 +31,9 @@ namespace NavyCompositePattern
 
         public virtual void GiveOrder(string order, bool delegateOrder) { throw new NotSupportedException(); }
 
-        public virtual void GetOrder(string order, bool delegateOrder) { throw new NotSupportedException(); }
+        public virtual void SetOrder(string order, bool delegateOrder) { throw new NotSupportedException(); }
 
+        // Print will be able to be used by all derivates
         public virtual void Print(int depth = 0)
         {
             for (int i = 0; i < depth; i++)

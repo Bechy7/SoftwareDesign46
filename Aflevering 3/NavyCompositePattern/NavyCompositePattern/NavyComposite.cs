@@ -17,7 +17,7 @@ namespace NavyCompositePattern
         : base(name, gender, rank)
         { }
 
-        public override void GetOrder(string order, bool delegateOrder)
+        public override void SetOrder(string order, bool delegateOrder)
         {
             if (delegateOrder)
                 ForwardOrder(order);
@@ -39,7 +39,7 @@ namespace NavyCompositePattern
             {
                 Console.WriteLine($"{Rank} {Name} forwarding order: {order}\n");
                 foreach (var navyComponent in Subordinates)
-                    navyComponent.GetOrder(order, true);
+                    navyComponent.SetOrder(order, true);
             }
         }
         public override void GiveOrder(string order, bool delegateOrder)
@@ -52,7 +52,7 @@ namespace NavyCompositePattern
             {
                 Console.WriteLine($"{Rank} {Name} giving order to direct subordinates: {order}\n");
                 foreach (var navyComponent in Subordinates)
-                    navyComponent.GetOrder(order, false);
+                    navyComponent.SetOrder(order, false);
             }
         }
 

@@ -6,7 +6,7 @@ namespace NavyCompositePattern
     public sealed class NavyLeaf : NavyComponent
     {
         public NavyLeaf(string name, string gender, string rank)
-        : base(name, rank, gender)
+        : base(name, gender, rank)
         { }
 
         public override void SetCurrentOperation(string operation)
@@ -15,7 +15,7 @@ namespace NavyCompositePattern
             Console.WriteLine($"{Rank} {Name} received operation: {Operation}\n");
         }
 
-        public override void GetOrder(string order, bool delegateOrder)
+        public override void SetOrder(string order, bool delegateOrder)
         {
             Order = order;
             Console.WriteLine($"{Rank} {Name} received order: {Order}\n");
