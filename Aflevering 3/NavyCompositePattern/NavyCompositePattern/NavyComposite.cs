@@ -21,16 +21,18 @@ namespace NavyCompositePattern
         {
             if (delegateOrder)
                 ForwardOrder(order);
-
             else
                 Order = order;
         }
 
         public override void ForwardOrder(string order)
         {
-            foreach (var navyComponent in Subordinates)
+            if (Subordinates.Count == 0)
+                Order = order;
+            else
             {
-                navyComponent.GetOrder(order, true);
+                foreach (var navyComponent in Subordinates)
+                    navyComponent.GetOrder(order, true);
             }
         }
         public override void GiveOrder(string order, bool delegateOrder)
@@ -53,14 +55,14 @@ namespace NavyCompositePattern
             }
         }
 
-        public override void AddChild(NavyComponent officer)
+        public override void AddChild(NavyComponent subordinate)
         {
-            Subordinates.Add(officer);
+            Subordinates.Add(subordinate);
         }
 
-        public override void RemoveChild(NavyComponent officer)
+        public override void RemoveChild(NavyComponent subordinate)
         {
-            Subordinates.Remove(officer);
+            Subordinates.Remove(subordinate);
         }
 
         public override IEnumerator GetEnumerator()

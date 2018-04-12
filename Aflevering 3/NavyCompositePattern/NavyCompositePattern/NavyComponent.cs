@@ -60,7 +60,11 @@ namespace NavyCompositePattern
         //// Only be able to execute - for leaves only
         public virtual void ExecuteOrder()
         {
-            Console.WriteLine($"{Name}: Order '{Order}' has been executed ");
+            Console.WriteLine($"{Name} executing order:");
+            Console.WriteLine(Order == null
+                ? $"{Name} had no order to execute\n"
+                : $"{Name}: Order '{Order}' has been executed\n");
+
             Order = null;
         }
 
