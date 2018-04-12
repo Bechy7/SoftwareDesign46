@@ -12,37 +12,37 @@ namespace NavyCompositePattern
         static void Main(string[] args)
         {
 
-            NavyComponent daniboi = new NavyComposite("daniboi", "mand", "highRank");
+            NavyComponent Captain1 = new NavyComposite("Daniel", "Male", "Captain");
 
-            NavyComponent sørenboi = new NavyComposite("soerenmightbeboesseboi", "mand", "highRankToo");
+            NavyComponent Captain2 = new NavyComposite("Søren", "Male", "Captain");
 
-            NavyComponent Fætimå = new NavyComposite("Fætimø", "Kvindfolk", "MiddleRanks");
+            NavyComponent Officer = new NavyComposite("Fatima", "Female", "Officer");
 
-            sørenboi.AddChild(new NavyLeaf("im small", "mand", "lavt"));
-            sørenboi.AddChild(new NavyLeaf("hej", "ikke noget køn", "hahaha"));
+            Captain2.AddChild(new NavyLeaf("John", "Male", "Private"));
+            Captain2.AddChild(new NavyLeaf("Jensine", "Female", "Private"));
 
-            daniboi.AddChild(new NavyLeaf("Marto", "mandboi", "Soldier"));
+            Captain1.AddChild(new NavyLeaf("Martin", "Male", "Private"));
 
-            NavyComponent test = new NavyComposite("above all", "mand", "highest rank");
+            NavyComponent General = new NavyComposite("Amos", "Male", "General");
 
-            test.AddChild(Fætimå);
+            General.AddChild(Officer);
 
-            Fætimå.AddChild(daniboi);
-            Fætimå.AddChild(sørenboi);
+            Officer.AddChild(Captain1);
+            Officer.AddChild(Captain2);
 
-            Fætimå.GiveOrder("Rens toiletter", false);
+            Officer.GiveOrder("Rens toiletter", false);
 
 
-            test.Print();
+            General.Print();
 
-            sørenboi.ExecuteOrder();
+            Captain2.ExecuteOrder();
             
-            sørenboi.SetCurrentOperation("Sandstorm");
+            Captain2.SetCurrentOperation("Sandstorm");
             
-            daniboi.SetCurrentOperation("Kill_Kate");
+            Captain1.SetCurrentOperation("Kill_Kate");
 
             Console.WriteLine();
-            test.Print();
+            General.Print();
         }
     }
 }
