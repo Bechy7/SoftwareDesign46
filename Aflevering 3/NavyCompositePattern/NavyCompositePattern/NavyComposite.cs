@@ -22,15 +22,22 @@ namespace NavyCompositePattern
             if (delegateOrder)
                 ForwardOrder(order);
             else
+            {
                 Order = order;
+                Console.WriteLine($"{Rank} {Name} receiving order: {order}\n");
+            }
         }
 
         public override void ForwardOrder(string order)
         {
             if (Subordinates.Count == 0)
+            {
+                Console.WriteLine($"{Rank} {Name} receiving order: {order}\n");
                 Order = order;
+            }
             else
             {
+                Console.WriteLine($"{Rank} {Name} forwarding order: {order}\n");
                 foreach (var navyComponent in Subordinates)
                     navyComponent.GetOrder(order, true);
             }
@@ -38,16 +45,21 @@ namespace NavyCompositePattern
         public override void GiveOrder(string order, bool delegateOrder)
         {
             if (delegateOrder)
+            {
                 ForwardOrder(order);
-
+            }
             else
-            foreach (var navyComponent in Subordinates)
-                navyComponent.GetOrder(order, false);
+            {
+                Console.WriteLine($"{Rank} {Name} giving order to direct subordinates: {order}\n");
+                foreach (var navyComponent in Subordinates)
+                    navyComponent.GetOrder(order, false);
+            }
         }
 
         public override void SetCurrentOperation(string operation)
         {
             Operation = operation;
+            Console.WriteLine($"{Rank} {Name} received operation: {Operation}\n");
 
             foreach (var navyComponent in Subordinates)
             {

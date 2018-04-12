@@ -36,14 +36,24 @@ namespace NavyCompositePattern
 
             officer.GiveOrder("Kill Søren", false);
 
+            Console.WriteLine("PRINTING FULL TREE");
+            Console.WriteLine("---------------------------------");
+
             general.Print();
 
-            Console.WriteLine("\nSetting new operations: Sandstorm and Kill_Kate\n");
+            Console.WriteLine("---------------------------------");
+
+            Console.WriteLine();
 
             captain2.SetCurrentOperation("Sandstorm");
             captain1.SetCurrentOperation("Kill_Kate");
 
+            Console.WriteLine("PRINTING FULL TREE");
+            Console.WriteLine("---------------------------------");
+
             general.Print();
+
+            Console.WriteLine("---------------------------------");
 
             captain1.AddChild(private2);
             captain2.RemoveChild(private2);
@@ -53,24 +63,34 @@ namespace NavyCompositePattern
             captain1.ExecuteOrder();
             officer.RemoveChild(captain2);
 
+            Console.WriteLine("PRINTING FULL TREE");
+            Console.WriteLine("---------------------------------");
+
             general.Print();
+
+            Console.WriteLine("---------------------------------\n");
 
             general.GiveOrder("Invade Africa", false);
 
-            Console.WriteLine("\nGeneral giving order to subordinates: Invade Africa");
-            Console.WriteLine("Captain giving order to all leaves: make coffee for all captains\n");
 
             captain1.GiveOrder("Make coffee for all captains", true);
 
+            Console.WriteLine("PRINTING FULL TREE");
+            Console.WriteLine("---------------------------------");
+
             general.Print();
 
-            Console.WriteLine();
+            Console.WriteLine("---------------------------------\n");
 
             private2.ExecuteOrder();
 
-            Console.WriteLine("Print only tree under a captain\n");
+            Console.WriteLine($"PRINTING ONLY TREE UNDER {captain1.Name}");
+            Console.WriteLine("---------------------------------");
 
             captain1.Print();
+
+            Console.WriteLine("---------------------------------");
+
         }
     }
 }
