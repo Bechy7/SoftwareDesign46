@@ -24,9 +24,7 @@ namespace NavyCompositePattern
             Gender = gender;
         }
 
-        //public virtual void SetCurrentOperation(string operation) { throw new NotSupportedException(); }
-
-        //public virtual string GetCurrentOperation() { throw new NotSupportedException(); }
+        public virtual void SetCurrentOperation(string operation) { throw new NotSupportedException(); }
 
         public virtual void AddChild(NavyComponent child) { throw new NotSupportedException(); }
 
@@ -38,7 +36,7 @@ namespace NavyCompositePattern
 
         public virtual void GetOrder(string order, bool delegateOrder) { throw new NotSupportedException(); }
 
-        public virtual void Print(int depth)
+        public virtual void Print(int depth = 1)
         {
             for (int i = 0; i < depth; i++)
                 Console.Write("-");
@@ -59,10 +57,12 @@ namespace NavyCompositePattern
                 component.Print(depth + 1);
         }
 
-        public virtual void ExecuteOrder(string order, bool execute) { throw new NotSupportedException(); }
-
-        // Only be able to execute - for leaves only
-        public virtual void ExecuteOrder(string order) { throw new NotSupportedException(); }
+        //// Only be able to execute - for leaves only
+        public virtual void ExecuteOrder()
+        {
+            Console.WriteLine($"{Name}: Order '{Order}' has been executed ");
+            Order = null;
+        }
 
         public virtual void ForwardOrder(string order) { throw new NotSupportedException(); }
 

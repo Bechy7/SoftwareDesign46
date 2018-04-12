@@ -43,6 +43,16 @@ namespace NavyCompositePattern
                 navyComponent.GetOrder(order, false);
         }
 
+        public override void SetCurrentOperation(string operation)
+        {
+            Operation = operation;
+
+            foreach (var navyComponent in Subordinates)
+            {
+                navyComponent.SetCurrentOperation(operation);
+            }
+        }
+
         public override void AddChild(NavyComponent officer)
         {
             Subordinates.Add(officer);

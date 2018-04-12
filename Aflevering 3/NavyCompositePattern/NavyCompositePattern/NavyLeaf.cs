@@ -9,9 +9,9 @@ namespace NavyCompositePattern
         : base(name, rank, gender)
         { }
 
-       public override void ExecuteOrder(string order)
+        public override void SetCurrentOperation(string operation)
         {
-            Console.WriteLine("Executing order " + order);
+            Operation = operation;
         }
 
         public override void GetOrder(string order, bool delegateOrder)
