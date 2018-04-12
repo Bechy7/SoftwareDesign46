@@ -12,37 +12,46 @@ namespace NavyCompositePattern
         static void Main(string[] args)
         {
 
-            NavyComponent Captain1 = new NavyComposite("Daniel", "Male", "Captain");
+            NavyComponent captain1 = new NavyComposite("Daniel", "Male", "Captain");
 
-            NavyComponent Captain2 = new NavyComposite("Søren", "Male", "Captain");
+            NavyComponent captain2 = new NavyComposite("Søren", "Male", "Captain");
 
-            NavyComponent Officer = new NavyComposite("Fatima", "Female", "Officer");
+            NavyComponent officer = new NavyComposite("Fatima", "Female", "Officer");
 
-            Captain2.AddChild(new NavyLeaf("John", "Male", "Private"));
-            Captain2.AddChild(new NavyLeaf("Jensine", "Female", "Private"));
+            NavyComponent officer2 = new NavyComposite("Jogvan", "Male", "Officer");
 
-            Captain1.AddChild(new NavyLeaf("Martin", "Male", "Private"));
+            NavyComposite private1 = new NavyComposite("JensFup", "Male", "Private");
 
-            NavyComponent General = new NavyComposite("Amos", "Male", "General");
+            captain2.AddChild(new NavyLeaf("John", "Male", "Private"));
+            captain2.AddChild(new NavyLeaf("Jensine", "Female", "Private"));
 
-            General.AddChild(Officer);
+            captain1.AddChild(new NavyLeaf("Martin", "Male", "Private"));
 
-            Officer.AddChild(Captain1);
-            Officer.AddChild(Captain2);
+            NavyComponent general = new NavyComposite("Amos", "Male", "General");
 
-            Officer.GiveOrder("Rens toiletter", false);
+            general.AddChild(officer);
+            general.AddChild(officer2);
 
+            officer.AddChild(captain1);
+            officer.AddChild(captain2);
 
-            General.Print();
+            officer2.AddChild(private1);
 
-            Captain2.ExecuteOrder();
+            officer.GiveOrder("Rens toiletter", false);
             
-            Captain2.SetCurrentOperation("Sandstorm");
-            
-            Captain1.SetCurrentOperation("Kill_Kate");
+            general.Print();
 
             Console.WriteLine();
-            General.Print();
+
+            captain2.ExecuteOrder();
+            
+            captain2.SetCurrentOperation("Sandstorm");
+            
+            captain1.SetCurrentOperation("Kill_Kate");
+
+            Console.WriteLine();
+
+            general.Print();
         }
     }
 }

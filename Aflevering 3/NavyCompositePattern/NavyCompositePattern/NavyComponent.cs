@@ -36,10 +36,10 @@ namespace NavyCompositePattern
 
         public virtual void GetOrder(string order, bool delegateOrder) { throw new NotSupportedException(); }
 
-        public virtual void Print(int depth = 1)
+        public virtual void Print(int depth = 0)
         {
             for (int i = 0; i < depth; i++)
-                Console.Write("-");
+                Console.Write("|   ");
 
             Console.Write(Name + ", " + Gender + ", " + Rank);
 
