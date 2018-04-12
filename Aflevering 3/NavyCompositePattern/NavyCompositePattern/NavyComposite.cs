@@ -8,15 +8,11 @@ namespace NavyCompositePattern
     //Composite class - include subordinates and other methods
     public class NavyComposite : NavyComponent
     {
-        //private string _order;
-        //private bool _delegateOrder;
-
-        //private List<NavyComponent> _subordinates = new List<NavyComponent>();
-        
         public NavyComposite(string name, string gender, string rank)
         : base(name, gender, rank)
         { }
 
+        // Delegate order to subordinates or set order 
         public override void SetOrder(string order, bool delegateOrder)
         {
             if (delegateOrder)
@@ -28,6 +24,7 @@ namespace NavyCompositePattern
             }
         }
 
+        // Forward to subordinates or set order
         public override void ForwardOrder(string order)
         {
             if (Subordinates.Count == 0)
@@ -42,6 +39,8 @@ namespace NavyCompositePattern
                     navyComponent.SetOrder(order, true);
             }
         }
+
+        // Give order to direct subordinates or forward
         public override void GiveOrder(string order, bool delegateOrder)
         {
             if (delegateOrder)
@@ -56,6 +55,7 @@ namespace NavyCompositePattern
             }
         }
 
+        // Set operation in this object plus all subordinates
         public override void SetCurrentOperation(string operation)
         {
             Operation = operation;
@@ -67,21 +67,16 @@ namespace NavyCompositePattern
             }
         }
 
+        // Add child to subordinates
         public override void AddChild(NavyComponent subordinate)
         {
             Subordinates.Add(subordinate);
         }
 
+        // Remove child from subordinates
         public override void RemoveChild(NavyComponent subordinate)
         {
             Subordinates.Remove(subordinate);
         }
-
-        public override IEnumerator GetEnumerator()
-        {
-            foreach (NavyComponent sub in Subordinates)
-                yield return sub;
-        }
-
     }
 }

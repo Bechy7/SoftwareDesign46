@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace NavyCompositePattern
 {
-    public abstract class NavyComponent : IEnumerable
+    public abstract class NavyComponent
     {
         // Declare list of subordinates and define all properties
         public List<NavyComponent> Subordinates = new List<NavyComponent>();
@@ -55,7 +55,7 @@ namespace NavyCompositePattern
                 component.Print(depth + 1);
         }
 
-        //// Only be able to execute - for leaves only
+        // Only be able to execute - for leaves only
         public virtual void ExecuteOrder()
         {
             Console.WriteLine($"{Name} executing order:");
@@ -68,6 +68,6 @@ namespace NavyCompositePattern
 
         public virtual void ForwardOrder(string order) { throw new NotSupportedException(); }
 
-        public virtual IEnumerator GetEnumerator() { throw new NotSupportedException(); }
+       // public virtual IEnumerator GetEnumerator() { throw new NotSupportedException(); }
     }
 }

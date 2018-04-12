@@ -12,21 +12,25 @@ namespace NavyCompositePattern
         static void Main(string[] args)
         {
 
-            var admiral = new NavyComposite("Amos", "Male", "Admiral");
+            var admiral1 = new NavyComposite("Amos", "Male", "Admiral");
             var captain1 = new NavyComposite("Fatima", "Female", "Captain");
             var captain2 = new NavyComposite("Jogvan", "Male", "Captain");
+            var captain3 = new NavyComposite("Hans", "Male", "Captain");
             var lieutenant1 = new NavyComposite("Daniel", "Male", "Lieutenant");
             var lieutenant2 = new NavyComposite("Søren", "Male", "Lieutenant");
             var sailor1 = new NavyLeaf("JensFup", "Male", "Sailor");
             var sailor2 = new NavyLeaf("John", "Male", "Sailor");
+            
+            captain3.AddChild(new NavyComposite("Bente", "Female", "Lieutenant"));
 
             lieutenant2.AddChild(sailor2);
             captain2.AddChild(new NavyLeaf("Jensine", "Female", "Sailor"));
 
             lieutenant1.AddChild(new NavyLeaf("Martin", "Male", "Sailor"));
             
-            admiral.AddChild(captain1);
-            admiral.AddChild(captain2);
+            admiral1.AddChild(captain1);
+            admiral1.AddChild(captain2);
+            admiral1.AddChild(captain3);
 
             captain1.AddChild(lieutenant1);
             captain1.AddChild(lieutenant2);
@@ -39,7 +43,7 @@ namespace NavyCompositePattern
             Console.WriteLine("PRINTING FULL TREE");
             Console.WriteLine("---------------------------------");
 
-            admiral.Print();
+            admiral1.Print();
 
             Console.WriteLine("---------------------------------");
 
@@ -51,26 +55,29 @@ namespace NavyCompositePattern
             Console.WriteLine("PRINTING FULL TREE");
             Console.WriteLine("---------------------------------");
 
-            admiral.Print();
+            admiral1.Print();
 
             Console.WriteLine("---------------------------------");
 
             lieutenant1.AddChild(sailor2);
-            lieutenant2.RemoveChild(sailor2);
+            captain1.RemoveChild(lieutenant2);
 
             Console.WriteLine();
 
             lieutenant1.ExecuteOrder();
             lieutenant1.RemoveChild(lieutenant2);
 
+            Console.WriteLine($"Manually removing {lieutenant2.Name} " +
+                              $"and adding {sailor2.Name} under {lieutenant1.Name} (not {sailor1.Name})\n");
+
             Console.WriteLine("PRINTING FULL TREE");
             Console.WriteLine("---------------------------------");
 
-            admiral.Print();
+            admiral1.Print();
 
             Console.WriteLine("---------------------------------\n");
 
-            admiral.GiveOrder("Invade Africa", false);
+            admiral1.GiveOrder("Invade Africa", false);
 
 
             lieutenant1.GiveOrder("Make coffee for all captains", true);
@@ -78,7 +85,7 @@ namespace NavyCompositePattern
             Console.WriteLine("PRINTING FULL TREE");
             Console.WriteLine("---------------------------------");
 
-            admiral.Print();
+            admiral1.Print();
 
             Console.WriteLine("---------------------------------\n");
 
