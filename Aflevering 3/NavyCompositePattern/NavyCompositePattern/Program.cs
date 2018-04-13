@@ -21,6 +21,9 @@ namespace NavyCompositePattern
             var sailor1 = new NavyLeaf("JensFup", "Male", "Sailor");
             var sailor2 = new NavyLeaf("John", "Male", "Sailor");
             
+
+           
+
             captain3.AddChild(new NavyComposite("Bente", "Female", "Lieutenant"));
 
             lieutenant2.AddChild(sailor2);
@@ -96,7 +99,18 @@ namespace NavyCompositePattern
 
             lieutenant1.Print();
 
-            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------\n");
+
+            Console.WriteLine($"{sailor1.Rank} {sailor1.Name} trying to give order:");
+            try
+            {
+                sailor1.GiveOrder("Make me captain", true);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
         }
     }
