@@ -36,8 +36,14 @@ namespace NavyCompositePattern
         // Print will be able to be used by all derivates
         public virtual void Print(int depth = 0)
         {
-            for (int i = 0; i < depth; i++)
-                Console.Write("|   ");
+            // Pretty print
+            if (depth != 0)
+            {
+                for (int i = 0; i < depth - 1; i++)
+                    Console.Write("|   ");
+
+                Console.Write("|-  ");
+            }
 
             Console.Write(Name + ", " + Gender + ", " + Rank);
 
