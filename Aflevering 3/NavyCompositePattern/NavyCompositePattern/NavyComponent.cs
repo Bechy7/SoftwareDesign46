@@ -29,7 +29,7 @@ namespace NavyCompositePattern
 
         public virtual void RemoveChild(NavyComponent child) { throw new NotSupportedException(); }
 
-        public virtual void GiveOrder(string order, bool delegateOrder) { throw new NotSupportedException(); }
+        public virtual void GiveOrder(string order, bool delegateOrder) { throw new NotSupportedException("GiveOrder not implemented"); }
 
         public virtual void SetOrder(string order, bool delegateOrder) { throw new NotSupportedException(); }
 
