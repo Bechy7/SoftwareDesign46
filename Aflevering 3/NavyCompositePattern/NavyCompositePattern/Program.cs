@@ -12,17 +12,14 @@ namespace NavyCompositePattern
         static void Main(string[] args)
         {
 
-            var admiral1 = new NavyComposite("Amos", "Male", "Admiral");
-            var captain1 = new NavyComposite("Fatima", "Female", "Captain");
-            var captain2 = new NavyComposite("Jogvan", "Male", "Captain");
-            var captain3 = new NavyComposite("Hans", "Male", "Captain");
-            var lieutenant1 = new NavyComposite("Daniel", "Male", "Lieutenant");
-            var lieutenant2 = new NavyComposite("Søren", "Male", "Lieutenant");
-            var sailor1 = new NavyLeaf("JensFup", "Male", "Sailor");
-            var sailor2 = new NavyLeaf("John", "Male", "Sailor");
-            
-
-           
+            NavyComponent admiral1 = new NavyComposite("Amos", "Male", "Admiral");
+            NavyComponent captain1 = new NavyComposite("Fatima", "Female", "Captain");
+            NavyComponent captain2 = new NavyComposite("Jogvan", "Male", "Captain");
+            NavyComponent captain3 = new NavyComposite("Hans", "Male", "Captain");
+            NavyComponent lieutenant1 = new NavyComposite("Daniel", "Male", "Lieutenant");
+            NavyComponent lieutenant2 = new NavyComposite("Søren", "Male", "Lieutenant");
+            NavyComponent sailor1 = new NavyLeaf("JensFup", "Male", "Sailor");
+            NavyComponent sailor2 = new NavyLeaf("John", "Male", "Sailor");
 
             captain3.AddChild(new NavyComposite("Bente", "Female", "Lieutenant"));
 
