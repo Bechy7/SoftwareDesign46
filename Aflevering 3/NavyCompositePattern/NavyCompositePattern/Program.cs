@@ -68,7 +68,7 @@ namespace NavyCompositePattern
             lieutenant1.RemoveChild(lieutenant2);
 
             Console.WriteLine($"Manually removing {lieutenant2.Name} " +
-                              $"and adding {sailor2.Name} under {lieutenant1.Name} (not {sailor1.Name})\n");
+                              $"and adding {sailor2.Name} under {lieutenant1.Name}");
 
             Console.WriteLine("PRINTING FULL TREE");
             Console.WriteLine("---------------------------------");
